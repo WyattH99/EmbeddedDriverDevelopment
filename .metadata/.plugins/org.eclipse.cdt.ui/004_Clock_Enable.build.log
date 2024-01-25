@@ -1,0 +1,10 @@
+09:03:51 **** Incremental Build of configuration Debug for project 004_Clock_Enable ****
+make -j12 all 
+arm-none-eabi-size   004_Clock_Enable.elf 
+   text	   data	    bss	    dec	    hex	filename
+    744	      8	   1568	   2320	    910	004_Clock_Enable.elf
+Finished building: default.size.stdout
+ 
+
+09:03:52 Build Finished. 0 errors, 0 warnings. (took 527ms)
+

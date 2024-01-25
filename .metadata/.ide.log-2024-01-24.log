@@ -1,0 +1,5 @@
+2024-01-24 09:39:51,662 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
+2024-01-24 09:39:53,296 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=false
+2024-01-24 09:39:55,983 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
+2024-01-24 09:53:08,066 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
+2024-01-24 18:11:10,106 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 

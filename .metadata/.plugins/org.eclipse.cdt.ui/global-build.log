@@ -1,0 +1,14 @@
+12:51:25 **** Incremental Build of configuration Debug for project 005_HSI_Measurement ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "005_HSI_Measurement.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/005_HSI_Measurement/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="005_HSI_Measurement.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 005_HSI_Measurement.elf
+ 
+arm-none-eabi-size   005_HSI_Measurement.elf 
+arm-none-eabi-objdump -h -S  005_HSI_Measurement.elf  > "005_HSI_Measurement.list"
+   text	   data	    bss	    dec	    hex	filename
+    820	      8	   1568	   2396	    95c	005_HSI_Measurement.elf
+Finished building: default.size.stdout
+ 
+Finished building: 005_HSI_Measurement.list
+ 
