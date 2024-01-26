@@ -1,7 +1,7 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:001_Hello_World,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:002_Sample_Application Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:004_Clock_Enable Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:005_HSI_Measurement Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:006_HSE_Measurement Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:001_Hello_World,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:002_Sample_Application Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:004_Clock_Enable Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:005_HSI_Measurement Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:006_HSE_Measurement Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:007_Volatile Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:001_Hello_World/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:001_Hello_World/activeLaunchTarget=null\:---
