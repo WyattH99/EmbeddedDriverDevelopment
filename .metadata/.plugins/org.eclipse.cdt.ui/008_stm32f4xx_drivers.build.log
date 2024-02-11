@@ -1,8 +1,15 @@
-17:32:27 **** Build of configuration Debug for project 008_stm32f4xx_drivers ****
+12:23:06 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
 make -j12 all 
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPin':
+../Drivers/Src/stm32f446xx_gpio_driver.c:152:1: warning: control reaches end of non-void function [-Wreturn-type]
+  152 | }
+      | ^
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPort':
+../Drivers/Src/stm32f446xx_gpio_driver.c:156:1: warning: control reaches end of non-void function [-Wreturn-type]
+  156 | }
+      | ^
 arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: 008_stm32f4xx_drivers.elf
  
@@ -11,9 +18,9 @@ arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers
    text	   data	    bss	    dec	    hex	filename
     704	      8	   1568	   2280	    8e8	008_stm32f4xx_drivers.elf
 Finished building: default.size.stdout
+ 
 Finished building: 008_stm32f4xx_drivers.list
  
- 
 
-17:32:28 Build Finished. 0 errors, 0 warnings. (took 726ms)
+12:23:07 Build Finished. 0 errors, 2 warnings. (took 620ms)
 

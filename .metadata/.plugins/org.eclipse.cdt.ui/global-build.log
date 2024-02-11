@@ -1,8 +1,7 @@
-17:32:27 **** Build of configuration Debug for project 008_stm32f4xx_drivers ****
+18:16:51 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
 make -j12 all 
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
 arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: 008_stm32f4xx_drivers.elf
  
@@ -11,6 +10,222 @@ arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers
    text	   data	    bss	    dec	    hex	filename
     704	      8	   1568	   2280	    8e8	008_stm32f4xx_drivers.elf
 Finished building: default.size.stdout
+ 
 Finished building: 008_stm32f4xx_drivers.list
  
+19:08:25 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_PeriClockControl':
+../Drivers/Src/stm32f446xx_gpio_driver.c:33:24: error: switch quantity not an integer
+   33 |                 switch(pGPIOx){
+      |                        ^~~~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:34:25: error: pointers are not permitted as case values
+   34 |                         case GPIOA:
+      |                         ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:37:25: error: pointers are not permitted as case values
+   37 |                         case GPIOB:
+      |                         ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:40:25: error: pointers are not permitted as case values
+   40 |                         case GPIOC:
+      |                         ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:43:25: error: pointers are not permitted as case values
+   43 |                         case GPIOD:
+      |                         ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:46:25: error: pointers are not permitted as case values
+   46 |                         case GPIOE:
+      |                         ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:49:25: error: pointers are not permitted as case values
+   49 |                         case GPIOF:
+      |                         ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:52:25: error: pointers are not permitted as case values
+   52 |                         case GPIOG:
+      |                         ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:55:25: error: pointers are not permitted as case values
+   55 |                         case GPIOH:
+      |                         ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:62:24: error: switch quantity not an integer
+   62 |                 switch(pGPIOx){
+      |                        ^~~~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:63:25: error: pointers are not permitted as case values
+   63 |                         case GPIOA:
+      |                         ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:66:25: error: pointers are not permitted as case values
+   66 |                         case GPIOB:
+      |                         ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:69:25: error: pointers are not permitted as case values
+   69 |                         case GPIOC:
+      |                         ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:72:25: error: pointers are not permitted as case values
+   72 |                         case GPIOD:
+      |                         ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:75:25: error: pointers are not permitted as case values
+   75 |                         case GPIOE:
+      |                         ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:78:25: error: pointers are not permitted as case values
+   78 |                         case GPIOF:
+      |                         ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:81:25: error: pointers are not permitted as case values
+   81 |                         case GPIOG:
+      |                         ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:84:25: error: pointers are not permitted as case values
+   84 |                         case GPIOH:
+      |                         ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_Init':
+../Drivers/Src/stm32f446xx_gpio_driver.c:100:65: error: invalid type argument of '->' (have 'GPIO_PinConfig_t')
+  100 |         pGPIOHandle->pGPIOx->MODER = pGPIOHandle->GPIO_PinConfig->GPIO_PinMode;
+      |                                                                 ^~
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPin':
+../Drivers/Src/stm32f446xx_gpio_driver.c:121:1: warning: control reaches end of non-void function [-Wreturn-type]
+  121 | }
+      | ^
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPort':
+../Drivers/Src/stm32f446xx_gpio_driver.c:125:1: warning: control reaches end of non-void function [-Wreturn-type]
+  125 | }
+      | ^
+make: *** [Drivers/Src/subdir.mk:19: Drivers/Src/stm32f446xx_gpio_driver.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+19:13:27 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_Init':
+../Drivers/Src/stm32f446xx_gpio_driver.c:78:65: error: invalid type argument of '->' (have 'GPIO_PinConfig_t')
+   78 |         pGPIOHandle->pGPIOx->MODER = pGPIOHandle->GPIO_PinConfig->GPIO_PinMode;
+      |                                                                 ^~
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPin':
+../Drivers/Src/stm32f446xx_gpio_driver.c:99:1: warning: control reaches end of non-void function [-Wreturn-type]
+   99 | }
+      | ^
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPort':
+../Drivers/Src/stm32f446xx_gpio_driver.c:103:1: warning: control reaches end of non-void function [-Wreturn-type]
+  103 | }
+      | ^
+make: *** [Drivers/Src/subdir.mk:19: Drivers/Src/stm32f446xx_gpio_driver.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+19:13:37 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPin':
+../Drivers/Src/stm32f446xx_gpio_driver.c:98:1: warning: control reaches end of non-void function [-Wreturn-type]
+   98 | }
+      | ^
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPort':
+../Drivers/Src/stm32f446xx_gpio_driver.c:102:1: warning: control reaches end of non-void function [-Wreturn-type]
+  102 | }
+      | ^
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+    704	      8	   1568	   2280	    8e8	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+11:30:39 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_Init':
+../Drivers/Src/stm32f446xx_gpio_driver.c:79:73: error: expected expression before ')' token
+   79 |         if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode <= GPIO_MODE_ANALOG>){
+      |                                                                         ^
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPin':
+../Drivers/Src/stm32f446xx_gpio_driver.c:103:1: warning: control reaches end of non-void function [-Wreturn-type]
+  103 | }
+      | ^
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPort':
+../Drivers/Src/stm32f446xx_gpio_driver.c:107:1: warning: control reaches end of non-void function [-Wreturn-type]
+  107 | }
+      | ^
+make: *** [Drivers/Src/subdir.mk:19: Drivers/Src/stm32f446xx_gpio_driver.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+11:30:51 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPin':
+../Drivers/Src/stm32f446xx_gpio_driver.c:103:1: warning: control reaches end of non-void function [-Wreturn-type]
+  103 | }
+      | ^
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPort':
+../Drivers/Src/stm32f446xx_gpio_driver.c:107:1: warning: control reaches end of non-void function [-Wreturn-type]
+  107 | }
+      | ^
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+    704	      8	   1568	   2280	    8e8	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+12:07:42 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_Init':
+../Drivers/Src/stm32f446xx_gpio_driver.c:120:33: warning: statement with no effect [-Wunused-value]
+  120 |                                 temp 0;
+      |                                 ^~~~
+../Drivers/Src/stm32f446xx_gpio_driver.c:120:37: error: expected ';' before numeric constant
+  120 |                                 temp 0;
+      |                                     ^~
+      |                                     ;
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPin':
+../Drivers/Src/stm32f446xx_gpio_driver.c:136:1: warning: control reaches end of non-void function [-Wreturn-type]
+  136 | }
+      | ^
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPort':
+../Drivers/Src/stm32f446xx_gpio_driver.c:140:1: warning: control reaches end of non-void function [-Wreturn-type]
+  140 | }
+      | ^
+make: *** [Drivers/Src/subdir.mk:19: Drivers/Src/stm32f446xx_gpio_driver.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+12:08:09 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPin':
+../Drivers/Src/stm32f446xx_gpio_driver.c:136:1: warning: control reaches end of non-void function [-Wreturn-type]
+  136 | }
+      | ^
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPort':
+../Drivers/Src/stm32f446xx_gpio_driver.c:140:1: warning: control reaches end of non-void function [-Wreturn-type]
+  140 | }
+      | ^
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+    704	      8	   1568	   2280	    8e8	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+12:23:06 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPin':
+../Drivers/Src/stm32f446xx_gpio_driver.c:152:1: warning: control reaches end of non-void function [-Wreturn-type]
+  152 | }
+      | ^
+../Drivers/Src/stm32f446xx_gpio_driver.c: In function 'GPIO_ReadFromInputPort':
+../Drivers/Src/stm32f446xx_gpio_driver.c:156:1: warning: control reaches end of non-void function [-Wreturn-type]
+  156 | }
+      | ^
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+    704	      8	   1568	   2280	    8e8	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
  
