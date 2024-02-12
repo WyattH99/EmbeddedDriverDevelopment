@@ -39,13 +39,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_macro  0000134e  00000000  00000000  0001137f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00000bf7  00000000  00000000  000126cd  2**0
+ 18 .debug_line   00000c00  00000000  00000000  000126cd  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000051da  00000000  00000000  000132c4  2**0
+ 19 .debug_str    000051e0  00000000  00000000  000132cd  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_frame  00000224  00000000  00000000  000184a0  2**2
+ 20 .debug_frame  00000224  00000000  00000000  000184b0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 0000006d  00000000  00000000  000186c4  2**0
+ 21 .debug_line_str 0000006d  00000000  00000000  000186d4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -698,74 +698,73 @@ int main(void){
  80005f0:	b580      	push	{r7, lr}
  80005f2:	b086      	sub	sp, #24
  80005f4:	af00      	add	r7, sp, #0
+	// Declare External Led and External Button
+	GPIO_Handle_t Led_Ext;
+	GPIO_Handle_t Btn_Ext;
 
-	GPIO_Handle_t GpioLed;
-	GPIO_Handle_t GpioButton;
-
-	// Configure the Led
-	GpioLed.pGPIOx = GPIOA;
+	// Configure External Led PA6
+	Led_Ext.pGPIOx = GPIOA;
  80005f6:	4b1d      	ldr	r3, [pc, #116]	; (800066c <main+0x7c>)
  80005f8:	60fb      	str	r3, [r7, #12]
-	GpioLed.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_5;
- 80005fa:	2305      	movs	r3, #5
+	Led_Ext.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_6;
+ 80005fa:	2306      	movs	r3, #6
  80005fc:	743b      	strb	r3, [r7, #16]
-	GpioLed.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUTPUT;
+	Led_Ext.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUTPUT;
  80005fe:	2301      	movs	r3, #1
  8000600:	747b      	strb	r3, [r7, #17]
-	GpioLed.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
+	Led_Ext.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
  8000602:	2300      	movs	r3, #0
  8000604:	753b      	strb	r3, [r7, #20]
-	GpioLed.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
+	Led_Ext.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
  8000606:	2300      	movs	r3, #0
  8000608:	74fb      	strb	r3, [r7, #19]
-	GpioLed.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+	Led_Ext.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
  800060a:	2302      	movs	r3, #2
  800060c:	74bb      	strb	r3, [r7, #18]
 
 	// Configure the Button
-	GpioButton.pGPIOx = GPIOC;
+	Btn_Ext.pGPIOx = GPIOB;
  800060e:	4b18      	ldr	r3, [pc, #96]	; (8000670 <main+0x80>)
  8000610:	603b      	str	r3, [r7, #0]
-	GpioButton.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
- 8000612:	230d      	movs	r3, #13
+	Btn_Ext.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_6;
+ 8000612:	2306      	movs	r3, #6
  8000614:	713b      	strb	r3, [r7, #4]
-	GpioButton.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_INPUT;
+	Btn_Ext.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_INPUT;
  8000616:	2300      	movs	r3, #0
  8000618:	717b      	strb	r3, [r7, #5]
-	GpioButton.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
+	Btn_Ext.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
  800061a:	2300      	movs	r3, #0
  800061c:	71fb      	strb	r3, [r7, #7]
-	GpioButton.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+	Btn_Ext.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
  800061e:	2302      	movs	r3, #2
  8000620:	71bb      	strb	r3, [r7, #6]
 
-	// Enable Port Clocks
-	GPIO_PeriClockControl(GpioLed.pGPIOx, ENABLE);
+	// Enable Port A Clock
+	GPIO_PeriClockControl(Led_Ext.pGPIOx, ENABLE);
  8000622:	68fb      	ldr	r3, [r7, #12]
  8000624:	2101      	movs	r1, #1
  8000626:	4618      	mov	r0, r3
  8000628:	f7ff fdec 	bl	8000204 <GPIO_PeriClockControl>
-	GPIO_PeriClockControl(GpioButton.pGPIOx, ENABLE);
+	GPIO_PeriClockControl(Btn_Ext.pGPIOx, ENABLE);
  800062c:	683b      	ldr	r3, [r7, #0]
  800062e:	2101      	movs	r1, #1
  8000630:	4618      	mov	r0, r3
  8000632:	f7ff fde7 	bl	8000204 <GPIO_PeriClockControl>
 
-	// Initialize the Led and Button
-	GPIO_Init(&GpioLed);
+	// Initialize External Led and Button
+	GPIO_Init(&Led_Ext);
  8000636:	f107 030c 	add.w	r3, r7, #12
  800063a:	4618      	mov	r0, r3
  800063c:	f7ff feb2 	bl	80003a4 <GPIO_Init>
-	GPIO_Init(&GpioButton);
+	GPIO_Init(&Btn_Ext);
  8000640:	463b      	mov	r3, r7
  8000642:	4618      	mov	r0, r3
  8000644:	f7ff feae 	bl	80003a4 <GPIO_Init>
 
-
 	while(1){
 
-		// Toggle when Button Pressed
-		if(GPIO_ReadFromInputPin(GpioButton.pGPIOx, GpioButton.GPIO_PinConfig.GPIO_PinNumber) == BUTTON_PRESSED){
+		// Toggle External Led when Button Pressed
+		if(GPIO_ReadFromInputPin(Btn_Ext.pGPIOx, Btn_Ext.GPIO_PinConfig.GPIO_PinNumber) == BUTTON_PRESSED){
  8000648:	683b      	ldr	r3, [r7, #0]
  800064a:	793a      	ldrb	r2, [r7, #4]
  800064c:	4611      	mov	r1, r2
@@ -774,18 +773,18 @@ int main(void){
  8000654:	4603      	mov	r3, r0
  8000656:	2b00      	cmp	r3, #0
  8000658:	d1f6      	bne.n	8000648 <main+0x58>
-			delay(); // For the De-bouncing of the Button
+			delay();
  800065a:	f7ff ffb3 	bl	80005c4 <delay>
-			GPIO_ToggleOutputPin(GpioLed.pGPIOx, GpioLed.GPIO_PinConfig.GPIO_PinNumber);
+			GPIO_ToggleOutputPin(Led_Ext.pGPIOx, Led_Ext.GPIO_PinConfig.GPIO_PinNumber);
  800065e:	68fb      	ldr	r3, [r7, #12]
  8000660:	7c3a      	ldrb	r2, [r7, #16]
  8000662:	4611      	mov	r1, r2
  8000664:	4618      	mov	r0, r3
  8000666:	f7ff ff99 	bl	800059c <GPIO_ToggleOutputPin>
-		if(GPIO_ReadFromInputPin(GpioButton.pGPIOx, GpioButton.GPIO_PinConfig.GPIO_PinNumber) == BUTTON_PRESSED){
+		if(GPIO_ReadFromInputPin(Btn_Ext.pGPIOx, Btn_Ext.GPIO_PinConfig.GPIO_PinNumber) == BUTTON_PRESSED){
  800066a:	e7ed      	b.n	8000648 <main+0x58>
  800066c:	40020000 	.word	0x40020000
- 8000670:	40020800 	.word	0x40020800
+ 8000670:	40020400 	.word	0x40020400
 
 08000674 <Reset_Handler>:
 

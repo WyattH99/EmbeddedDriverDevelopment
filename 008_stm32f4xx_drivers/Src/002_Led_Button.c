@@ -8,7 +8,7 @@
 
 #include "stm32f446xx.h"
 
-#define BUTTON_PRESSED GPIO_PIN_RESET
+#define BUTTON_PRESSED GPIO_PIN_SET
 
 
 void delay(void){
