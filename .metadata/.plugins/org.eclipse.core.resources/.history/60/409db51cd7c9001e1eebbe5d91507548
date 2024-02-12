@@ -1,0 +1,43 @@
+/*
+ * 002_Led_Button.c
+ *
+ *  Created on: Feb 12, 2024
+ *      Author: wyatt
+ */
+
+
+#include "stm32f446xx.h"
+
+
+
+int main(void){
+
+	GPIO_Handle_t GpioLed;
+	GPIO_Handle_t GpioButton;
+
+	// Configure the Led
+
+
+	// Configure the Button
+
+
+	// Enable Port Clock
+
+
+	// Initialize the Led and Button
+
+
+	while(1){
+
+		if(GPIO_ReadFromInputPin(GpioButton.pGPIOx, GpioButton.GPIO_PinConfig.GPIO_PinNumber) == GPIO_PIN_SET){
+			GPIO_WriteToOutputPin(GpioButton.pGPIOx, GpioButton.GPIO_PinConfig.GPIO_PinNumber, GPIO_PIN_SET);
+		}else{
+
+		}
+
+	}
+
+
+
+	return 0;
+}
