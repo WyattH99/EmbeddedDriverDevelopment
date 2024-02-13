@@ -12,29 +12,6 @@
 #include <stdint.h>
 
 
-/***************** PROCESSOR SPECIFIC DETAILS *****************/
-
-/*
- * ARM Cortex Mx Processor NVIC ISERx Register Addresses
- */
-#define NVIC_ISER0			((volatile uint32_t*)0xE000E100)
-#define NVIC_ISER1			((volatile uint32_t*)0xE000E104)
-#define NVIC_ISER2			((volatile uint32_t*)0xE000E108)
-#define NVIC_ISER3			((volatile uint32_t*)0xE000E10C)
-
-
-/*
- * ARM Cortex Mx Processor NVIC ICERx Register Addresses
- */
-#define NVIC_ICER0			((volatile uint32_t*)0XE000E180)
-#define NVIC_ICER1			((volatile uint32_t*)0XE000E184)
-#define NVIC_ICER2			((volatile uint32_t*)0xE000E188)
-#define NVIC_ICER3			((volatile uint32_t*)0xE000E18C)
-
-
-
-/***************** Peripheral SPECIFIC DETAILS *****************/
-
 /*
  * Base Addresses of FLash and SRAM Memories
  */
@@ -316,17 +293,6 @@ typedef struct{
 											  	(x == GPIOE) ? 4 :\
 											  	(x == GPIOF) ? 5 :\
 											  	(x == GPIOG) ? 6 : 0)
-
-/*
- * IRQ (Interrupt Request) Numbers of STM32F446xx MCU
- */
-#define IRQ_NUM_EXTI0			6
-#define IRQ_NUM_EXTI1			7
-#define IRQ_NUM_EXTI2			8
-#define IRQ_NUM_EXTI3			9
-#define IRQ_NUM_EXTI4			10
-#define IRQ_NUM_EXTI9_5			23
-#define IRQ_NUM_EXTI15_10		40
 
 
 /*

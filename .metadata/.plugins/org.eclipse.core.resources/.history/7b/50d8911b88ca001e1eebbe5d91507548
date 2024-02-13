@@ -101,14 +101,9 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 		}
 
 		// Configure the GPIO port Selection in SYSCFG_EXTICR
-		uint8_t ExtiCR_Number = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber / 4;
-		uint8_t ExtiCR_ShiftOffset = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber % 4;
-		uint8_t portcode = GPIO_BASEADDR_TO_PORTCODE(pGPIOHandle->pGPIOx);
-		SYSCFG_PCLK_EN();
-		SYSCFG->EXTICR[ExtiCR_Number] = portcode << (ExtiCR_ShiftOffset * 4);
+		if(pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber <= GPIO)
 
-		// Enable the EXTI interrupt delivery using IMR
-		EXTI->IMR |= (1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+		// Enable the exti interrupt delivery using IMR
 	}
 
 	// 2. Configure Speed
@@ -206,41 +201,12 @@ void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber){
 
 
 /*
- * IRQ Configuration
+ * IRQ Configuration and ISR Handling
  */
 void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t EnOrDi){
-	if(EnOrDi == ENABLE){
-		// Enable
-		if(IRQNumber <= 31){
-			// Program ISER0 Register
-			*NVIC_ISER0 |= (1 << IRQNumber);
-		}else if(IRQNumber > 31 && IRQNumber < 64){
-			// Program ISER1 Register
-			*NVIC_ISER1 |= (1 << (IRQNumber % 32));
-		}else if(IRQNumber >= 64 && IRQNumber < 96){
-			// Program ISER2 Register
-			*NVIC_ISER2 |= (1 << (IRQNumber % 32));
-		}
-	}else{
-		// Disable
-		if(IRQNumber <= 31){
-			// Program ICER0 Register
-			*NVIC_ICER0 |= (1 << IRQNumber);
-		}else if(IRQNumber > 31 && IRQNumber < 64){
-			// Program ICER1 Register
-			*NVIC_ICER1 |= (1 << (IRQNumber % 32));
-		}else if(IRQNumber >= 64 && IRQNumber < 96){
-			// Program ICER2 Register
-			*NVIC_ICER2 |= (1 << (IRQNumber % 32));
-		}
-	}
 
 }
 
-
-/*
- * ISR Handling
- */
 void GPIO_IRQHandling(uint8_t PinNumber){
 
 }

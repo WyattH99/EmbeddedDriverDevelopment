@@ -12,29 +12,6 @@
 #include <stdint.h>
 
 
-/***************** PROCESSOR SPECIFIC DETAILS *****************/
-
-/*
- * ARM Cortex Mx Processor NVIC ISERx Register Addresses
- */
-#define NVIC_ISER0			((volatile uint32_t*)0xE000E100)
-#define NVIC_ISER1			((volatile uint32_t*)0xE000E104)
-#define NVIC_ISER2			((volatile uint32_t*)0xE000E108)
-#define NVIC_ISER3			((volatile uint32_t*)0xE000E10C)
-
-
-/*
- * ARM Cortex Mx Processor NVIC ICERx Register Addresses
- */
-#define NVIC_ICER0			((volatile uint32_t*)0XE000E180)
-#define NVIC_ICER1			((volatile uint32_t*)0XE000E184)
-#define NVIC_ICER2			((volatile uint32_t*)0xE000E188)
-#define NVIC_ICER3			((volatile uint32_t*)0xE000E18C)
-
-
-
-/***************** Peripheral SPECIFIC DETAILS *****************/
-
 /*
  * Base Addresses of FLash and SRAM Memories
  */
@@ -154,33 +131,6 @@ typedef struct{
 	volatile uint32_t DCKCFGR2;			// Dedicated Clocks Configuration Register 2						OFFSET: 0x94
 } RCC_RegDef_t;
 
-
-/*
- * Peripheral Register Definition Structure for EXTI
- */
-typedef struct{
-	volatile uint32_t IMR;				// Interrupt Mask Register					OFFSET: 0x00
-	volatile uint32_t EMR;				// Event Mask Register						OFFSET: 0x04
-	volatile uint32_t RTSR;				// Rising Trigger Selection Register		OFFSET: 0x08
-	volatile uint32_t FTSR;				// Falling Trigger Selection Register		OFFSET: 0x0C
-	volatile uint32_t SWIER;			// Software Interrupt Event Register		OFFSET: 0x10
-	volatile uint32_t PR;				// Pending Register							OFFSET: 0x14
-} EXTI_RegDef_t;
-
-
-/*
- * Peripheral Register Definition Structure for SYSCFG
- */
-typedef struct{
-	volatile uint32_t MEMRMP;			// Memory Remap Register								OFFSET: 0x00
-	volatile uint32_t PMC;				// Peripheral Mode Configuration Register				OFFSET: 0x04
-	volatile uint32_t EXTICR[4];		// External Interrupt Configuration Registers 1-4		OFFSET: 0x08-0x14
-	uint32_t RESERVED1[2];				// Reserved												OFFSET: 0x18-1C
-	volatile uint32_t CMPCR;			// Compensation Cell Control Register					OFFSET: 0x20
-	uint32_t RESERVED2[2];				// Reserved												OFFSET: 0x24-28
-	volatile uint32_t CFGR;				// Configuration Register								OFFSET: 0x2C
-} SYSCFG_RegDef_t;
-
 /*
  * Peripheral Definitions Base Addresses Type-casted to xxxx_RegDef_t
  */
@@ -196,9 +146,6 @@ typedef struct{
 
 #define RCC			((RCC_RegDef_t*) RCC_BASEADDR)
 
-#define EXTI		((EXTI_RegDef_t*) EXTI_BASEADDR)
-
-#define SYSCFG		((SYSCFG_RegDef_t*) SYSCFG_BASEADDR)
 
 
 /*
@@ -304,29 +251,6 @@ typedef struct{
 #define GPIOF_REG_RESET()	do{ (RCC->AHB1RSTR |= (1 << 5)); (RCC->AHB1RSTR &= ~(1 << 5)); }while(0)
 #define GPIOG_REG_RESET()	do{ (RCC->AHB1RSTR |= (1 << 6)); (RCC->AHB1RSTR &= ~(1 << 6)); }while(0)
 #define GPIOH_REG_RESET()	do{ (RCC->AHB1RSTR |= (1 << 7)); (RCC->AHB1RSTR &= ~(1 << 7)); }while(0)
-
-
-/*
- * Return Port Code for Given GPIOx Base Address
- */
-#define GPIO_BASEADDR_TO_PORTCODE(x)		(   (x == GPIOA) ? 0 :\
-											  	(x == GPIOB) ? 1 :\
-											  	(x == GPIOC) ? 2 :\
-											  	(x == GPIOD) ? 3 :\
-											  	(x == GPIOE) ? 4 :\
-											  	(x == GPIOF) ? 5 :\
-											  	(x == GPIOG) ? 6 : 0)
-
-/*
- * IRQ (Interrupt Request) Numbers of STM32F446xx MCU
- */
-#define IRQ_NUM_EXTI0			6
-#define IRQ_NUM_EXTI1			7
-#define IRQ_NUM_EXTI2			8
-#define IRQ_NUM_EXTI3			9
-#define IRQ_NUM_EXTI4			10
-#define IRQ_NUM_EXTI9_5			23
-#define IRQ_NUM_EXTI15_10		40
 
 
 /*
