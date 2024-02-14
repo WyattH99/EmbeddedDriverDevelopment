@@ -37,9 +37,6 @@
 #define NVIC_IPR_BASE_ADDR	((volatile uint32_t*)0xE000E400)
 
 
-#define NUM_PR_BITS_IMPLEMENTED		4
-
-
 
 /***************** Peripheral SPECIFIC DETAILS *****************/
 
