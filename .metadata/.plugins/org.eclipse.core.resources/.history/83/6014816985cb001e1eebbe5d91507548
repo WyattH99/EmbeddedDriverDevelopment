@@ -124,20 +124,6 @@ typedef struct{
 
 } GPIO_RegDef_t;
 
-
-typedef struct{
-	volatile uint32_t CR1;			// Control Register 1					OFFSET: 0x00
-	volatile uint32_t CR2;			// Control Register 2					OFFSET: 0x04
-	volatile uint32_t SR;			// Status Register						OFFSET: 0x08
-	volatile uint32_t DR;			// Data Register						OFFSET: 0x0C
-	volatile uint32_t CRCPR;		// CRC Polynomial Register				OFFSET: 0x10
-	volatile uint32_t RXCRCR;		// RX CRC Polynomial Register			OFFSET: 0x14
-	volatile uint32_t TXCRCR;		// TX CRC Register						OFFSET: 0x18
-	volatile uint32_t I2SCFGR;		// I^2S Configuration Register			OFFSET: 0x1C
-	volatile uint32_t I2SPR;		// I^2S PreScaler Register				OFFSET: 0x20
-} SPI_RegDef_t;
-
-
 // RCC
 typedef struct{
 	volatile uint32_t CR;				// Clock Control Register											OFFSET: 0x00

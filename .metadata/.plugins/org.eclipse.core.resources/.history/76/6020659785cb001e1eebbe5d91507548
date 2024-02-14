@@ -124,7 +124,6 @@ typedef struct{
 
 } GPIO_RegDef_t;
 
-
 typedef struct{
 	volatile uint32_t CR1;			// Control Register 1					OFFSET: 0x00
 	volatile uint32_t CR2;			// Control Register 2					OFFSET: 0x04

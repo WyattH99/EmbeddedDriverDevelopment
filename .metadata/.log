@@ -7724,3 +7724,6 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY org.eclipse.cdt.dsf 4 10001 2024-02-14 11:22:52.829
 !MESSAGE Target not available.
+
+!ENTRY org.eclipse.cdt.ui 2 0 2024-02-14 16:09:10.411
+!MESSAGE The 'org.eclipse.cdt.ui.InclusionProposalComputer' proposal computer from the 'org.eclipse.cdt.ui' plug-in did not complete normally. The extension violated the API contract of the 'computeContextInformation()' operation.
