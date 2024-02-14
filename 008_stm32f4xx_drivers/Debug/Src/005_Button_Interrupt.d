@@ -1,4 +1,4 @@
-Src/main.o: ../Src/main.c \
+Src/005_Button_Interrupt.o: ../Src/005_Button_Interrupt.c \
  /home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc/stm32f446xx.h \
  /home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc/stm32f446xx_gpio_driver.h \
  /home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc/stm32f446xx.h
