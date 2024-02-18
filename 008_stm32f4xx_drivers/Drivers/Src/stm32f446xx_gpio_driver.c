@@ -74,6 +74,10 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnOrDi){
  * Initialize and De-Initialize
  */
 void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
+
+	// Enable Peripheral Clock
+	GPIO_PeriClockControl(pGPIOHandle->pGPIOx, ENABLE);
+
 	uint32_t temp = 0; // Temporary Register
 
 	// 1. Configure Mode of GPIO Pin

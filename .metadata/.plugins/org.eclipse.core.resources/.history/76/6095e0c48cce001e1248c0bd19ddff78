@@ -1,0 +1,61 @@
+/*
+ * 006_SPI_Tx_Testing.c
+ *
+ *  Created on: Feb 18, 2024
+ *      Author: wyatt
+ */
+
+#include "stm32f446xx.h"
+
+/*
+ * SPI2 Pins:
+ * MISO --> PB14
+ * MOSI --> PB15
+ * SCLK --> PB13
+ * NSS  --> PB12
+ * ALT Function Mode: 5
+ */
+
+
+void SPI_GPIOInits(void){
+
+	GPIO_Handle_t SPIPins;
+
+	// Common Settings between Pins
+	SPIPins.pGPIOx = GPIOB;
+	SPIPins.GPIO_PinConfig->GPIO_PinMode = GPIO_MODE_ALTFUN;
+	SPIPins.GPIO_PinConfig->GPIO_PinAltFunMode = 5;
+	SPIPins.GPIO_PinConfig->GPIO_PinOPType = GPIO_OP_TYPE_PP;
+	SPIPins.GPIO_PinConfig->GPIO_PinPuPdControl = GPIO_NO_PUPD;
+	SPIPins.GPIO_PinConfig->GPIO_PinSpeed = GPIO_SPEED_FAST;
+
+	GPIO_Handle_t SPI_MISO_Pin = SPIPins;
+	GPIO_Handle_t SPI_MOSI_Pin = SPIPins;
+	GPIO_Handle_t SPI_SCLK_Pin = SPIPins;
+	GPIO_Handle_t SPI_NSS_Pin = SPIPins;
+
+	// Setting Pin Numbers
+	SPI_MISO_Pin.GPIO_PinConfig->GPIO_PinNumber = GPIO_PIN_NO_14;
+	SPI_MOSI_Pin.GPIO_PinConfig->GPIO_PinNumber = GPIO_PIN_NO_15;
+	SPI_SCLK_Pin.GPIO_PinConfig->GPIO_PinNumber = GPIO_PIN_NO_13;
+	SPI_NSS_Pin.GPIO_PinConfig->GPIO_PinNumber = GPIO_PIN_NO_12;
+
+	GPIO_Init(&SPI_MISO_Pin);
+	GPIO_Init(&SPI_MOSI_Pin);
+	GPIO_Init(&SPI_SCLK_Pin);
+	GPIO_Init(&SPI_NSS_Pin);
+
+
+}
+
+
+int main(void){
+
+	// Initialize the GPIO pins
+	SPI_GPIOInits();
+
+	GPIOB_PCLK_EN();
+
+
+	return 0;
+}
