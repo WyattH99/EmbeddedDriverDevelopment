@@ -1,0 +1,49 @@
+/*
+ * 007_SPI_TxOnly_Arduino.c
+ *
+ *  Created on: Feb 19, 2024
+ *      Author: wyatt
+ */
+
+
+#include "stm32f446xx.h"
+#include <string.h>
+
+/*
+ * SPI2 Pins:
+ * MISO --> PB14
+ * MOSI --> PB15
+ * SCLK --> PB13
+ * NSS  --> PB12
+ * ALT Function Mode: 5
+ */
+
+
+int main(void){
+
+	// Data to Send
+	char user_data[] = "Hello World";
+
+	// GPIO Initialization
+	SPI2_GPIOInits();
+
+	// SPI Initialization
+	SPI2_Inits();
+
+	// Configure the SSI
+	SPI_SSIConfig(SPI2, ENABLE);
+
+	// Enable the SPI2 Peripheral
+	SPI_PeripheralControl(SPI2, ENABLE);
+
+	// Send Data
+	SPI_SendData(SPI2, (uint8_t*)user_data, strlen(user_data));
+
+	// Disable the SPI2 Peripheral
+	SPI_PeripheralControl(SPI2, DISABLE);
+
+	while(1);
+
+
+	return 0;
+}

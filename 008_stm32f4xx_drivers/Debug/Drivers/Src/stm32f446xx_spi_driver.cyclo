@@ -9,3 +9,4 @@
 ../Drivers/Src/stm32f446xx_spi_driver.c:144:6:SPI_IRQHandling	1
 ../Drivers/Src/stm32f446xx_spi_driver.c:148:6:SPI_PeripheralControl	2
 ../Drivers/Src/stm32f446xx_spi_driver.c:158:6:SPI_SSIConfig	2
+../Drivers/Src/stm32f446xx_spi_driver.c:169:6:SPI_SSOEConfig	2

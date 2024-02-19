@@ -89,6 +89,9 @@ int main(void){
 
 	SPI_SendData(SPI2, (uint8_t*)user_data, strlen(user_data));
 
+	// Wait until SPI is not Busy
+	while(SPI_GetFlagStatus(SPI2, SPI_BUSY_FLAG));
+
 	// Disable the SPI2 Peripheral
 	SPI_PeripheralControl(SPI2, DISABLE);
 

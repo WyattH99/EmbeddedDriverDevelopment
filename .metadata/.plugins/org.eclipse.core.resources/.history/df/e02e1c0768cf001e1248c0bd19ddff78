@@ -1,0 +1,18 @@
+/*
+ * 007_SPI_TxOnly_Arduino.c
+ *
+ *  Created on: Feb 19, 2024
+ *      Author: wyatt
+ */
+
+
+#include "stm32f446xx.h"
+
+int main(void){
+
+
+
+
+
+	return 0;
+}
