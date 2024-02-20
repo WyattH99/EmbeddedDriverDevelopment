@@ -1,0 +1,6 @@
+../Src/008_SPI_Cmd_Handling.c:47:6:delay	2
+../Src/008_SPI_Cmd_Handling.c:53:6:SPI2_GPIOInits	1
+../Src/008_SPI_Cmd_Handling.c:88:6:SPI2_Inits	1
+../Src/008_SPI_Cmd_Handling.c:105:6:GPIO_ButtonInit	1
+../Src/008_SPI_Cmd_Handling.c:118:9:SPI_VerifyResponse	2
+../Src/008_SPI_Cmd_Handling.c:127:5:main	13
