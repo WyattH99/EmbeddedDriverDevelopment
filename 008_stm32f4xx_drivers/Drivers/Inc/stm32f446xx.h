@@ -10,6 +10,7 @@
 
 
 #include <stdint.h>
+#include <stddef.h>
 
 
 /***************** PROCESSOR SPECIFIC DETAILS *****************/
@@ -359,6 +360,10 @@ typedef struct{
 #define IRQ_NUM_EXTI4			10
 #define IRQ_NUM_EXTI9_5			23
 #define IRQ_NUM_EXTI15_10		40
+#define IRQ_NUM_SPI1			35
+#define IRQ_NUM_SPI2			36
+#define IRQ_NUM_SPI3			51
+#define IRQ_NUM_SPI4			84
 
 /*
  * IRQ (Interrupt Request) Priority Numbers of STM32F446xx MCU

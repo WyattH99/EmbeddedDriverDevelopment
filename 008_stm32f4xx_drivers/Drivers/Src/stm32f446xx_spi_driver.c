@@ -7,6 +7,10 @@
 
 #include "stm32f446xx_spi_driver.h"
 
+static void spi_txe_interrupt_handle(SPI_Handle_t *pSPIHandle);
+static void spi_rxne_interrupt_handle(SPI_Handle_t *pSPIHandle);
+static void spi_ovr_err_interrupt_handle(SPI_Handle_t *pSPIHandle);
+
 
 // Peripheral Clock Setup
 void SPI_PeriClockControl(SPI_RegDef_t *pSPIx, uint8_t EnOrDi){
@@ -155,16 +159,103 @@ void SPI_ReceiveData(SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer, uint32_t Length){
 
 // IRQ Configurations and ISR Handling
 void SPI_IRQInterruptConfig(uint8_t IRQNumber,uint8_t EnOrDi){
-
+	if(EnOrDi == ENABLE){
+		// Enable
+		if(IRQNumber <= 31){
+			// Program ISER0 Register
+			*NVIC_ISER0 |= (1 << IRQNumber);
+		}else if(IRQNumber > 31 && IRQNumber < 64){
+			// Program ISER1 Register
+			*NVIC_ISER1 |= (1 << (IRQNumber % 32));
+		}else if(IRQNumber >= 64 && IRQNumber < 96){
+			// Program ISER2 Register
+			*NVIC_ISER2 |= (1 << (IRQNumber % 32));
+		}
+	}else{
+		// Disable
+		if(IRQNumber <= 31){
+			// Program ICER0 Register
+			*NVIC_ICER0 |= (1 << IRQNumber);
+		}else if(IRQNumber > 31 && IRQNumber < 64){
+			// Program ICER1 Register
+			*NVIC_ICER1 |= (1 << (IRQNumber % 32));
+		}else if(IRQNumber >= 64 && IRQNumber < 96){
+			// Program ICER2 Register
+			*NVIC_ICER2 |= (1 << (IRQNumber % 32));
+		}
+	}
 }
+
 
 void SPI_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority){
-
+	uint8_t iprx = IRQNumber / 4;
+	uint8_t iprx_section = IRQNumber % 4;
+	uint8_t shift_amount = (8 * iprx_section) + (8 - NUM_PR_BITS_IMPLEMENTED);
+	*(NVIC_IPR_BASE_ADDR + iprx) |= (IRQPriority << shift_amount);
 }
+
 
 void SPI_IRQHandling(SPI_Handle_t *pHandle){
+	uint8_t txe = pHandle->pSPIx->SR & (1 << SPI_SR_TXE);
+	uint8_t txeie = pHandle->pSPIx->CR2 & (1 << SPI_CR2_TXEIE);
+	if(txe && txeie){
+		// Handle TXE
+		spi_txe_interrupt_handle(pHandle);
+	}
+
+	uint8_t rxne = pHandle->pSPIx->SR & (1 << SPI_SR_RXNE);
+	uint8_t rxneie = pHandle->pSPIx->CR2 & (1 << SPI_CR2_RXNEIE);
+	if(rxne && rxneie){
+		// Handle RXNE
+		spi_rxne_interrupt_handle(pHandle);
+	}
+
+	uint8_t ovr = pHandle->pSPIx->SR & (1 << SPI_SR_OVR);
+	uint8_t errie = pHandle->pSPIx->CR2 & (1 << SPI_CR2_ERRIE);
+	if(ovr && errie){
+		// Handle ovr
+		spi_ovr_err_interrupt_handle(pHandle);
+	}
 
 }
+
+
+uint8_t SPI_SendDataIT(SPI_Handle_t *pSPIHandle, uint8_t *pTxBuffer, uint32_t Length){
+	uint8_t state = pSPIHandle->TxState;
+	if( state != SPI_BUSY_IN_TX){
+		// 1. Save the Tx Buffer Address and Length
+		pSPIHandle->pTxBuffer = pTxBuffer;
+		pSPIHandle->TxLength = Length;
+
+		// 2. Update SPI State as busy in Tx so no other code can take over
+		pSPIHandle->TxState = SPI_BUSY_IN_TX;
+
+		// 3. Enable TXEIE Control Bit to get Interrupt whenever TXE flag is set in SR
+		pSPIHandle->pSPIx->CR2 |= (1 << SPI_CR2_TXEIE);
+	}
+
+	return state;
+
+}
+
+uint8_t SPI_ReceiveDataIT(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t Length){
+	uint8_t state = pSPIHandle->RxState;
+	if( state != SPI_BUSY_IN_RX){
+		// 1. Save the Rx Buffer Address and Length
+		pSPIHandle->pRxBuffer = pRxBuffer;
+		pSPIHandle->RxLength = Length;
+
+		// 2. Update SPI State as busy in Rx so no other code can take over
+		pSPIHandle->RxState = SPI_BUSY_IN_RX;
+
+		// 3. Enable TXEIE Control Bit to get Interrupt whenever RXNEIE flag is set in SR
+		pSPIHandle->pSPIx->CR2 |= (1 << SPI_CR2_RXNEIE);
+	}
+
+	return state;
+
+}
+
 
 void SPI_PeripheralControl(SPI_RegDef_t *pSPIx, uint8_t EnOrDi){
 	if(EnOrDi == ENABLE){
@@ -196,4 +287,99 @@ void SPI_SSOEConfig(SPI_RegDef_t *pSPIx, uint8_t EnOrDi){
 		pSPIx->CR2 &= ~(1 << SPI_CR2_SSOE);
 	}
 }
+
+
+/*
+ * SPI ISR Helper Functions
+ */
+static void spi_txe_interrupt_handle(SPI_Handle_t *pSPIHandle){
+	// Check if 8bit or 16bit
+	if((pSPIHandle->pSPIx->CR1 & (1 << SPI_CR1_DFF))){
+		// 16bit
+		// Load DR with 2 byte of data
+		pSPIHandle->pSPIx->DR = *((uint16_t*)pSPIHandle->pTxBuffer);
+		// Increment Buffer Address
+		(uint16_t*)pSPIHandle->pTxBuffer++;
+		// Length-- both bytes
+		pSPIHandle->TxLength -= 2;
+	}else{
+		// 8bit
+		pSPIHandle->pSPIx->DR = *pSPIHandle->pTxBuffer;
+		pSPIHandle->pTxBuffer++;
+		pSPIHandle->TxLength--;
+	}
+
+	if(! pSPIHandle->TxLength){
+		// TxLength is zero, close the SPI Transmission
+		SPI_CloseTransmission(pSPIHandle);
+		SPI_ApplicationEventCallback(pSPIHandle, SPI_EVENT_TX_COMPLETE);
+	}
+
+}
+
+static void spi_rxne_interrupt_handle(SPI_Handle_t *pSPIHandle){
+	// Check if 8bit or 16bit
+	if((pSPIHandle->pSPIx->CR1 & (1 << SPI_CR1_DFF))){
+		// 16bit
+		// Load data from DR to RxBuffer Address
+		*((uint16_t*)pSPIHandle->pRxBuffer) = pSPIHandle->pSPIx->DR;
+		// Increment Buffer Address
+		(uint16_t*)pSPIHandle->pRxBuffer++;
+		// Length--
+		pSPIHandle->RxLength -= 2;
+	}else{
+		// 8bit
+		*pSPIHandle->pRxBuffer = pSPIHandle->pSPIx->DR;
+		pSPIHandle->pRxBuffer++;
+		pSPIHandle->RxLength--;
+	}
+	if(! pSPIHandle->RxLength){
+		// Reception is complete
+		SPI_CloseReception(pSPIHandle);
+		SPI_ApplicationEventCallback(pSPIHandle, SPI_EVENT_RX_COMPLETE);
+	}
+
+}
+
+static void spi_ovr_err_interrupt_handle(SPI_Handle_t *pSPIHandle){
+	uint8_t temp;
+	// Clear ovr flag
+	if(pSPIHandle->TxState != SPI_BUSY_IN_TX){
+		temp = pSPIHandle->pSPIx->DR;
+		temp = pSPIHandle->pSPIx->SR;
+	}
+	(void)temp;
+	// Inform the Application
+	SPI_ApplicationEventCallback(pSPIHandle, SPI_EVENT_OVR_ERR);
+}
+
+
+void SPI_ClearOVRFlag(SPI_RegDef_t *pSPIx){
+	uint8_t temp;
+	temp = pSPIx->DR;
+	temp = pSPIx->SR;
+	(void)temp;
+}
+
+void SPI_CloseTransmission(SPI_Handle_t *pSPIHandle){
+	pSPIHandle->pSPIx->CR2 &= ~(1 << SPI_CR2_TXEIE); // Prevents interrupts from setting up TXE flag
+	pSPIHandle->pTxBuffer = NULL;
+	pSPIHandle->TxLength = 0;
+	pSPIHandle->TxState = SPI_READY;
+}
+
+void SPI_CloseReception(SPI_Handle_t *pSPIHandle){
+	pSPIHandle->pSPIx->CR2 &= ~(1 << SPI_CR2_RXNEIE); // Prevents interrupts from setting up TXE flag
+	pSPIHandle->pRxBuffer = NULL;
+	pSPIHandle->RxLength = 0;
+	pSPIHandle->RxState = SPI_READY;
+}
+
+
+
+__attribute__((weak)) void SPI_ApplicationEventCallback(SPI_Handle_t *pSPIHandle, uint8_t AppEvent){
+	// weak implementation that the application can override
+}
+
+
 
