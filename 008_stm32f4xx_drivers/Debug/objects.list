@@ -1,6 +1,7 @@
 "./Drivers/Src/stm32f446xx_gpio_driver.o"
+"./Drivers/Src/stm32f446xx_i2c_driver.o"
 "./Drivers/Src/stm32f446xx_spi_driver.o"
-"./Src/009_SPI_Message_Rcv_It.o"
+"./Src/010_I2C_Master_Tx_Testing.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
 "./Startup/startup_stm32f446retx.o"

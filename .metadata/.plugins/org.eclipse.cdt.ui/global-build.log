@@ -1,128 +1,14 @@
-17:23:34 **** Clean-only build of configuration Debug for project 008_stm32f4xx_drivers ****
-make -j12 clean 
-rm -rf ./Startup/startup_stm32f446retx.d ./Startup/startup_stm32f446retx.o
-rm -rf ./Src/009_SPI_Message_Rcv_It.cyclo ./Src/009_SPI_Message_Rcv_It.d ./Src/009_SPI_Message_Rcv_It.o ./Src/009_SPI_Message_Rcv_It.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
-rm -rf ./Drivers/Src/stm32f446xx_gpio_driver.cyclo ./Drivers/Src/stm32f446xx_gpio_driver.d ./Drivers/Src/stm32f446xx_gpio_driver.o ./Drivers/Src/stm32f446xx_gpio_driver.su ./Drivers/Src/stm32f446xx_spi_driver.cyclo ./Drivers/Src/stm32f446xx_spi_driver.d ./Drivers/Src/stm32f446xx_spi_driver.o ./Drivers/Src/stm32f446xx_spi_driver.su
-rm -rf 008_stm32f4xx_drivers.elf 008_stm32f4xx_drivers.list 008_stm32f4xx_drivers.map default.size.stdout
- 
-17:23:40 **** Build of configuration Debug for project 008_stm32f4xx_drivers ****
+13:01:54 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
 make -j12 all 
-arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f446retx.d" -MT"Startup/startup_stm32f446retx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
-arm-none-eabi-gcc "../Src/009_SPI_Message_Rcv_It.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/009_SPI_Message_Rcv_It.d" -MT"Src/009_SPI_Message_Rcv_It.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/009_SPI_Message_Rcv_It.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
-arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
-arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_spi_driver.d" -MT"Drivers/Src/stm32f446xx_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_spi_driver.o"
-../Src/009_SPI_Message_Rcv_It.c: In function 'main':
-../Src/009_SPI_Message_Rcv_It.c:162:63: warning: passing argument 2 of 'SPI_ReceiveDataIT' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  162 |                         while ( SPI_ReceiveDataIT(&SPI2handle,&ReadByte,1) == SPI_BUSY_IN_RX );
-      |                                                               ^~~~~~~~~
-In file included from /home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc/stm32f446xx.h:450,
-                 from ../Src/009_SPI_Message_Rcv_It.c:26:
-/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc/stm32f446xx_spi_driver.h:144:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
-  144 | uint8_t SPI_ReceiveDataIT(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t Length);
-      |                                                     ~~~~~~~~~^~~~~~~~~
-arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 008_stm32f4xx_drivers.elf
- 
 arm-none-eabi-size   008_stm32f4xx_drivers.elf 
-arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
    text	   data	    bss	    dec	    hex	filename
-   8584	    100	   2444	  11128	   2b78	008_stm32f4xx_drivers.elf
+   3556	     44	   1580	   5180	   143c	008_stm32f4xx_drivers.elf
 Finished building: default.size.stdout
  
-Finished building: 008_stm32f4xx_drivers.list
- 
-17:24:04 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+13:01:57 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
 make -j12 all 
 arm-none-eabi-size   008_stm32f4xx_drivers.elf 
    text	   data	    bss	    dec	    hex	filename
-   8584	    100	   2444	  11128	   2b78	008_stm32f4xx_drivers.elf
-Finished building: default.size.stdout
- 
-17:25:50 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
-make -j12 all 
-arm-none-eabi-size   008_stm32f4xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   8584	    100	   2444	  11128	   2b78	008_stm32f4xx_drivers.elf
-Finished building: default.size.stdout
- 
-17:33:30 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
-make -j12 all 
-arm-none-eabi-gcc "../Src/009_SPI_Message_Rcv_It.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/009_SPI_Message_Rcv_It.d" -MT"Src/009_SPI_Message_Rcv_It.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/009_SPI_Message_Rcv_It.o"
-../Src/009_SPI_Message_Rcv_It.c: In function 'main':
-../Src/009_SPI_Message_Rcv_It.c:162:63: warning: passing argument 2 of 'SPI_ReceiveDataIT' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
-  162 |                         while ( SPI_ReceiveDataIT(&SPI2handle,&ReadByte,1) == SPI_BUSY_IN_RX );
-      |                                                               ^~~~~~~~~
-In file included from /home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc/stm32f446xx.h:450,
-                 from ../Src/009_SPI_Message_Rcv_It.c:26:
-/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc/stm32f446xx_spi_driver.h:144:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'volatile char *'
-  144 | uint8_t SPI_ReceiveDataIT(SPI_Handle_t *pSPIHandle, uint8_t *pRxBuffer, uint32_t Length);
-      |                                                     ~~~~~~~~~^~~~~~~~~
-arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 008_stm32f4xx_drivers.elf
- 
-arm-none-eabi-size   008_stm32f4xx_drivers.elf 
-arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
-   text	   data	    bss	    dec	    hex	filename
-   8584	    100	   2444	  11128	   2b78	008_stm32f4xx_drivers.elf
-Finished building: default.size.stdout
- 
-Finished building: 008_stm32f4xx_drivers.list
- 
-17:36:29 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
-make -j12 all 
-arm-none-eabi-size   008_stm32f4xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   8584	    100	   2444	  11128	   2b78	008_stm32f4xx_drivers.elf
-Finished building: default.size.stdout
- 
-17:36:32 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
-make -j12 all 
-arm-none-eabi-size   008_stm32f4xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   8584	    100	   2444	  11128	   2b78	008_stm32f4xx_drivers.elf
-Finished building: default.size.stdout
- 
-17:37:12 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
-make -j12 all 
-arm-none-eabi-size   008_stm32f4xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   8584	    100	   2444	  11128	   2b78	008_stm32f4xx_drivers.elf
-Finished building: default.size.stdout
- 
-17:38:45 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
-make -j12 all 
-arm-none-eabi-size   008_stm32f4xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   8584	    100	   2444	  11128	   2b78	008_stm32f4xx_drivers.elf
-Finished building: default.size.stdout
- 
-17:42:04 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
-make -j12 all 
-arm-none-eabi-size   008_stm32f4xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   8584	    100	   2444	  11128	   2b78	008_stm32f4xx_drivers.elf
-Finished building: default.size.stdout
- 
-17:43:36 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
-make -j12 all 
-arm-none-eabi-size   008_stm32f4xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   8584	    100	   2444	  11128	   2b78	008_stm32f4xx_drivers.elf
-Finished building: default.size.stdout
- 
-17:44:33 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
-make -j12 all 
-arm-none-eabi-size   008_stm32f4xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   8584	    100	   2444	  11128	   2b78	008_stm32f4xx_drivers.elf
-Finished building: default.size.stdout
- 
-17:46:01 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
-make -j12 all 
-arm-none-eabi-size   008_stm32f4xx_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   8584	    100	   2444	  11128	   2b78	008_stm32f4xx_drivers.elf
+   3556	     44	   1580	   5180	   143c	008_stm32f4xx_drivers.elf
 Finished building: default.size.stdout
  
