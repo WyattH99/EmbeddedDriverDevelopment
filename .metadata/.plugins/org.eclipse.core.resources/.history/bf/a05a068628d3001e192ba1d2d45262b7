@@ -219,7 +219,7 @@ void I2C_MasterSendData(I2C_Handle_t *pI2C_Handle, uint8_t *pTxBuffer, uint8_t L
 	while(! I2C_GetFlagStatus(pI2C_Handle->pI2Cx, I2C_FLAG_BTF));
 
 	// 8. Generate STOP condition and master need not to wait for the completion of stop condition
-	if(Sr == I2C_DISABLE_SR){
+	if(Sr == I2C_NO_SR){
 		I2C_GenerateStopCondition(pI2C_Handle->pI2Cx);
 	}
 

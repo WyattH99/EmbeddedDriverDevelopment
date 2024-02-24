@@ -10,6 +10,6 @@
 ../Drivers/Src/stm32f446xx_i2c_driver.c:126:6:I2C_Init	24	static
 ../Drivers/Src/stm32f446xx_i2c_driver.c:180:6:I2C_DeInit	16	static
 ../Drivers/Src/stm32f446xx_i2c_driver.c:193:6:I2C_MasterSendData	24	static
-../Drivers/Src/stm32f446xx_i2c_driver.c:228:6:I2C_MasterReceiveData	32	static
-../Drivers/Src/stm32f446xx_i2c_driver.c:298:6:I2C_ManageAcking	16	static
-../Drivers/Src/stm32f446xx_i2c_driver.c:308:9:I2C_GetFlagStatus	16	static
+../Drivers/Src/stm32f446xx_i2c_driver.c:230:6:I2C_MasterReceiveData	32	static
+../Drivers/Src/stm32f446xx_i2c_driver.c:304:6:I2C_ManageAcking	16	static
+../Drivers/Src/stm32f446xx_i2c_driver.c:314:9:I2C_GetFlagStatus	16	static

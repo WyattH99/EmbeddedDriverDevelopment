@@ -115,7 +115,7 @@ int main(void){
 		// Request the Length (0x51)
 		commandcode = 0x51;
 		I2C_MasterSendData(&I2C1Handle, &commandcode, 1, SLAVE_ADDR, I2C_ENABLE_SR);
-		I2C_MasterReceiveData(&I2C1Handle, &length, 1, SLAVE_ADDR, I2C_ENABLE_SR);
+		I2C_MasterReceiveData(&I2C1Handle, &length, 1, SLAVE_ADDR, I2C_DISABLE_SR);
 
 		// Read the Message (0x52)
 		commandcode = 0x52;
