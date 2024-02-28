@@ -25,6 +25,7 @@
 
 // Flag Variable
 uint8_t rxComplete = RESET;
+
 I2C_Handle_t I2C1Handle;
 
 // Receive Buffer

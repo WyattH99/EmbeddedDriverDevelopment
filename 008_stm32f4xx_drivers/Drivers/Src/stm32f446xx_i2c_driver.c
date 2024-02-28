@@ -69,6 +69,20 @@ void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx){
 }
 
 
+void I2C_SlaveEnableDisableCallbackEvents(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi){
+	if(EnOrDi == ENABLE){
+		pI2Cx->CR2 |= (1 << I2C_CR2_ITEVTEN);
+		pI2Cx->CR2 |= (1 << I2C_CR2_ITBUFEN);
+		pI2Cx->CR2 |= (1 << I2C_CR2_ITERREN);
+	}else{
+		pI2Cx->CR2 &= ~(1 << I2C_CR2_ITEVTEN);
+		pI2Cx->CR2 &= ~(1 << I2C_CR2_ITBUFEN);
+		pI2Cx->CR2 &= ~(1 << I2C_CR2_ITERREN);
+
+	}
+}
+
+
 // Peripheral Clock Setup
 void I2C_PeriClockControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi){
 	if(EnOrDi == ENABLE){
@@ -164,6 +178,7 @@ void I2C_Init(I2C_Handle_t *pI2C_Handle){
 	pI2C_Handle->pI2Cx->CR2 = (tempreg & 0x3F);
 
 	// Device Own Address
+	tempreg = 0;
 	tempreg |= pI2C_Handle->I2C_Config.I2C_DeviceAddress << 1;
 	tempreg |= (1 << 14);
 	pI2C_Handle->pI2Cx->OAR1 |= tempreg;
@@ -471,6 +486,17 @@ static void I2C_MasterHandleTXEInterrupt(I2C_Handle_t *pI2CHandle){
 	}
 }
 
+
+void I2C_SlaveSendData(I2C_RegDef_t *pI2C, uint8_t data){
+	pI2C->DR = data;
+}
+
+
+uint8_t I2C_SlaveReceiveData(I2C_RegDef_t *pI2C){
+	return (uint8_t)pI2C->DR;
+}
+
+
 void I2C_EV_IRQHandling(I2C_Handle_t *pI2CHandle){
 	// Interrupt handling for both master and slave mode of a device
 	uint32_t temp1, temp2, temp3;
@@ -543,6 +569,12 @@ void I2C_EV_IRQHandling(I2C_Handle_t *pI2CHandle){
 			if(pI2CHandle->TxRxState == I2C_BUSY_IN_TX){
 				I2C_MasterHandleTXEInterrupt(pI2CHandle);
 			}
+		}else{
+			// Slave
+			// Check if Slave is in Transmit mode
+			if(pI2CHandle->pI2Cx->SR2 & (1 << I2C_SR2_TRA)){
+				I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_DATA_REQ);
+			}
 		}
 
 	}
@@ -559,6 +591,10 @@ void I2C_EV_IRQHandling(I2C_Handle_t *pI2CHandle){
 			}
 		}else{
 			// Slave
+			// Check if Slave is in Receiver mode
+			if(!(pI2CHandle->pI2Cx->SR2 & (1 << I2C_SR2_TRA))){
+				I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_DATA_RCV);
+			}
 		}
 	}
 }
