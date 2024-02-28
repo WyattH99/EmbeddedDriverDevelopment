@@ -11,5 +11,11 @@
 ../Drivers/Src/stm32f446xx_i2c_driver.c:180:6:I2C_DeInit	4
 ../Drivers/Src/stm32f446xx_i2c_driver.c:193:6:I2C_MasterSendData	8
 ../Drivers/Src/stm32f446xx_i2c_driver.c:230:6:I2C_MasterReceiveData	12
-../Drivers/Src/stm32f446xx_i2c_driver.c:304:6:I2C_ManageAcking	2
-../Drivers/Src/stm32f446xx_i2c_driver.c:314:9:I2C_GetFlagStatus	2
+../Drivers/Src/stm32f446xx_i2c_driver.c:304:9:I2C_MasterSendDataIT	3
+../Drivers/Src/stm32f446xx_i2c_driver.c:335:9:I2C_MasterReceiveDataIT	3
+../Drivers/Src/stm32f446xx_i2c_driver.c:367:6:I2C_IRQInterruptConfig	12
+../Drivers/Src/stm32f446xx_i2c_driver.c:396:6:I2C_IRQPriorityConfig	1
+../Drivers/Src/stm32f446xx_i2c_driver.c:404:6:I2C_EV_IRQHandling	1
+../Drivers/Src/stm32f446xx_i2c_driver.c:421:6:I2C_ER_IRQHandling	1
+../Drivers/Src/stm32f446xx_i2c_driver.c:426:6:I2C_ManageAcking	2
+../Drivers/Src/stm32f446xx_i2c_driver.c:436:9:I2C_GetFlagStatus	2

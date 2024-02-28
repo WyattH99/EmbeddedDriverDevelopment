@@ -21,31 +21,31 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   8 .data         00000018  20000000  08000fa8  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          00000048  20000018  08000fc0  00020018  2**2
+  9 .bss          00000064  20000018  08000fc0  00020018  2**2
                   ALLOC
- 10 ._user_heap_stack 00000600  20000060  08000fc0  00020060  2**0
+ 10 ._user_heap_stack 00000604  2000007c  08000fc0  0002007c  2**0
                   ALLOC
  11 .ARM.attributes 0000002a  00000000  00000000  00020018  2**0
                   CONTENTS, READONLY
  12 .comment      00000043  00000000  00000000  00020042  2**0
                   CONTENTS, READONLY
- 13 .debug_info   00001361  00000000  00000000  00020085  2**0
+ 13 .debug_info   0000160f  00000000  00000000  00020085  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 000004c5  00000000  00000000  000213e6  2**0
+ 14 .debug_abbrev 00000507  00000000  00000000  00021694  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00000168  00000000  00000000  000218b0  2**3
+ 15 .debug_aranges 00000198  00000000  00000000  00021ba0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 00000105  00000000  00000000  00021a18  2**0
+ 16 .debug_rnglists 0000012c  00000000  00000000  00021d38  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  000024c3  00000000  00000000  00021b1d  2**0
+ 17 .debug_macro  00002511  00000000  00000000  00021e64  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00001898  00000000  00000000  00023fe0  2**0
+ 18 .debug_line   00001a42  00000000  00000000  00024375  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00009bad  00000000  00000000  00025878  2**0
+ 19 .debug_str    00009d06  00000000  00000000  00025db7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_frame  00000508  00000000  00000000  0002f428  2**2
+ 20 .debug_frame  000005f0  00000000  00000000  0002fac0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 0000006d  00000000  00000000  0002f930  2**0
+ 21 .debug_line_str 0000006d  00000000  00000000  000300b0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1827,6 +1827,9 @@ void I2C_MasterReceiveData(I2C_Handle_t *pI2C_Handle, uint8_t *pRxBuffer, uint8_
  8000d00:	bd80      	pop	{r7, pc}
 
 08000d02 <I2C_ManageAcking>:
+void I2C_ER_IRQHandling(I2C_Handle_t *pI2CHandle){
+
+}
 
 
 void I2C_ManageAcking(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi){
@@ -2163,7 +2166,7 @@ int main(void){
  8000edc:	40005400 	.word	0x40005400
  8000ee0:	40020800 	.word	0x40020800
  8000ee4:	20000034 	.word	0x20000034
- 8000ee8:	20000040 	.word	0x20000040
+ 8000ee8:	2000005c 	.word	0x2000005c
 
 08000eec <Reset_Handler>:
 
@@ -2260,7 +2263,7 @@ LoopForever:
   ldr r2, =_sbss
  8000f34:	20000018 	.word	0x20000018
   ldr r4, =_ebss
- 8000f38:	20000060 	.word	0x20000060
+ 8000f38:	2000007c 	.word	0x2000007c
 
 08000f3c <ADC_IRQHandler>:
  * @retval : None
