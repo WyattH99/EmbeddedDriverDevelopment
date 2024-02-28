@@ -210,3 +210,403 @@ Finished building: default.size.stdout
  
 Finished building: 008_stm32f4xx_drivers.list
  
+10:57:07 **** Clean-only build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 clean 
+rm -rf ./Startup/startup_stm32f446retx.d ./Startup/startup_stm32f446retx.o
+rm -rf ./Src/011_I2C_Master_Rx_Testing.cyclo ./Src/011_I2C_Master_Rx_Testing.d ./Src/011_I2C_Master_Rx_Testing.o ./Src/011_I2C_Master_Rx_Testing.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+rm -rf ./Drivers/Src/stm32f446xx_gpio_driver.cyclo ./Drivers/Src/stm32f446xx_gpio_driver.d ./Drivers/Src/stm32f446xx_gpio_driver.o ./Drivers/Src/stm32f446xx_gpio_driver.su ./Drivers/Src/stm32f446xx_i2c_driver.cyclo ./Drivers/Src/stm32f446xx_i2c_driver.d ./Drivers/Src/stm32f446xx_i2c_driver.o ./Drivers/Src/stm32f446xx_i2c_driver.su ./Drivers/Src/stm32f446xx_spi_driver.cyclo ./Drivers/Src/stm32f446xx_spi_driver.d ./Drivers/Src/stm32f446xx_spi_driver.o ./Drivers/Src/stm32f446xx_spi_driver.su
+rm -rf 008_stm32f4xx_drivers.elf 008_stm32f4xx_drivers.list 008_stm32f4xx_drivers.map default.size.stdout
+ 
+10:57:08 **** Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f446retx.d" -MT"Startup/startup_stm32f446retx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/011_I2C_Master_Rx_Testing.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/011_I2C_Master_Rx_Testing.d" -MT"Src/011_I2C_Master_Rx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/011_I2C_Master_Rx_Testing.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_i2c_driver.d" -MT"Drivers/Src/stm32f446xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_i2c_driver.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_spi_driver.d" -MT"Drivers/Src/stm32f446xx_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_spi_driver.o"
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_MasterSendData':
+../Drivers/Src/stm32f446xx_i2c_driver.c:232:38: warning: passing argument 1 of 'I2C_ClearADDRFlag' from incompatible pointer type [-Wincompatible-pointer-types]
+  232 |         I2C_ClearADDRFlag(pI2C_Handle->pI2Cx);
+      |                           ~~~~~~~~~~~^~~~~~~
+      |                                      |
+      |                                      I2C_RegDef_t *
+../Drivers/Src/stm32f446xx_i2c_driver.c:37:45: note: expected 'I2C_Handle_t *' but argument is of type 'I2C_RegDef_t *'
+   37 | static void I2C_ClearADDRFlag(I2C_Handle_t *pI2CHandle){
+      |                               ~~~~~~~~~~~~~~^~~~~~~~~~
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_MasterReceiveData':
+../Drivers/Src/stm32f446xx_i2c_driver.c:275:46: warning: passing argument 1 of 'I2C_ClearADDRFlag' from incompatible pointer type [-Wincompatible-pointer-types]
+  275 |                 I2C_ClearADDRFlag(pI2C_Handle->pI2Cx);
+      |                                   ~~~~~~~~~~~^~~~~~~
+      |                                              |
+      |                                              I2C_RegDef_t *
+../Drivers/Src/stm32f446xx_i2c_driver.c:37:45: note: expected 'I2C_Handle_t *' but argument is of type 'I2C_RegDef_t *'
+   37 | static void I2C_ClearADDRFlag(I2C_Handle_t *pI2CHandle){
+      |                               ~~~~~~~~~~~~~~^~~~~~~~~~
+../Drivers/Src/stm32f446xx_i2c_driver.c:293:46: warning: passing argument 1 of 'I2C_ClearADDRFlag' from incompatible pointer type [-Wincompatible-pointer-types]
+  293 |                 I2C_ClearADDRFlag(pI2C_Handle->pI2Cx);
+      |                                   ~~~~~~~~~~~^~~~~~~
+      |                                              |
+      |                                              I2C_RegDef_t *
+../Drivers/Src/stm32f446xx_i2c_driver.c:37:45: note: expected 'I2C_Handle_t *' but argument is of type 'I2C_RegDef_t *'
+   37 | static void I2C_ClearADDRFlag(I2C_Handle_t *pI2CHandle){
+      |                               ~~~~~~~~~~~~~~^~~~~~~~~~
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_MasterHandleRXNEInterrupt':
+../Drivers/Src/stm32f446xx_i2c_driver.c:453:17: warning: implicit declaration of function 'I2C_CloseReceiveData'; did you mean 'I2C_MasterReceiveData'? [-Wimplicit-function-declaration]
+  453 |                 I2C_CloseReceiveData();
+      |                 ^~~~~~~~~~~~~~~~~~~~
+      |                 I2C_MasterReceiveData
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_EV_IRQHandling':
+../Drivers/Src/stm32f446xx_i2c_driver.c:496:45: warning: passing argument 1 of 'I2C_ClearADDRFlag' from incompatible pointer type [-Wincompatible-pointer-types]
+  496 |                 I2C_ClearADDRFlag(pI2CHandle->pI2Cx);
+      |                                   ~~~~~~~~~~^~~~~~~
+      |                                             |
+      |                                             I2C_RegDef_t *
+../Drivers/Src/stm32f446xx_i2c_driver.c:37:45: note: expected 'I2C_Handle_t *' but argument is of type 'I2C_RegDef_t *'
+   37 | static void I2C_ClearADDRFlag(I2C_Handle_t *pI2CHandle){
+      |                               ~~~~~~~~~~~~~~^~~~~~~~~~
+../Drivers/Src/stm32f446xx_i2c_driver.c:513:41: warning: implicit declaration of function 'I2C_CloseSendData'; did you mean 'I2C_MasterSendData'? [-Wimplicit-function-declaration]
+  513 |                                         I2C_CloseSendData();
+      |                                         ^~~~~~~~~~~~~~~~~
+      |                                         I2C_MasterSendData
+../Drivers/Src/stm32f446xx_i2c_driver.c:516:101: error: expected ';' before '}' token
+  516 |                                         I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_TX_COMPLETE)
+      |                                                                                                     ^
+      |                                                                                                     ;
+  517 |                                 }
+      |                                 ~                                                                    
+../Drivers/Src/stm32f446xx_i2c_driver.c:533:70: error: expected ';' before '}' token
+  533 |                 I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_STOP)
+      |                                                                      ^
+      |                                                                      ;
+  534 |         }
+      |         ~                                                             
+make: *** [Drivers/Src/subdir.mk:25: Drivers/Src/stm32f446xx_i2c_driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+10:57:32 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_i2c_driver.d" -MT"Drivers/Src/stm32f446xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_i2c_driver.o"
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_MasterReceiveData':
+../Drivers/Src/stm32f446xx_i2c_driver.c:275:46: warning: passing argument 1 of 'I2C_ClearADDRFlag' from incompatible pointer type [-Wincompatible-pointer-types]
+  275 |                 I2C_ClearADDRFlag(pI2C_Handle->pI2Cx);
+      |                                   ~~~~~~~~~~~^~~~~~~
+      |                                              |
+      |                                              I2C_RegDef_t *
+../Drivers/Src/stm32f446xx_i2c_driver.c:37:45: note: expected 'I2C_Handle_t *' but argument is of type 'I2C_RegDef_t *'
+   37 | static void I2C_ClearADDRFlag(I2C_Handle_t *pI2CHandle){
+      |                               ~~~~~~~~~~~~~~^~~~~~~~~~
+../Drivers/Src/stm32f446xx_i2c_driver.c:293:46: warning: passing argument 1 of 'I2C_ClearADDRFlag' from incompatible pointer type [-Wincompatible-pointer-types]
+  293 |                 I2C_ClearADDRFlag(pI2C_Handle->pI2Cx);
+      |                                   ~~~~~~~~~~~^~~~~~~
+      |                                              |
+      |                                              I2C_RegDef_t *
+../Drivers/Src/stm32f446xx_i2c_driver.c:37:45: note: expected 'I2C_Handle_t *' but argument is of type 'I2C_RegDef_t *'
+   37 | static void I2C_ClearADDRFlag(I2C_Handle_t *pI2CHandle){
+      |                               ~~~~~~~~~~~~~~^~~~~~~~~~
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_MasterHandleRXNEInterrupt':
+../Drivers/Src/stm32f446xx_i2c_driver.c:453:17: warning: implicit declaration of function 'I2C_CloseReceiveData'; did you mean 'I2C_MasterReceiveData'? [-Wimplicit-function-declaration]
+  453 |                 I2C_CloseReceiveData();
+      |                 ^~~~~~~~~~~~~~~~~~~~
+      |                 I2C_MasterReceiveData
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_EV_IRQHandling':
+../Drivers/Src/stm32f446xx_i2c_driver.c:496:45: warning: passing argument 1 of 'I2C_ClearADDRFlag' from incompatible pointer type [-Wincompatible-pointer-types]
+  496 |                 I2C_ClearADDRFlag(pI2CHandle->pI2Cx);
+      |                                   ~~~~~~~~~~^~~~~~~
+      |                                             |
+      |                                             I2C_RegDef_t *
+../Drivers/Src/stm32f446xx_i2c_driver.c:37:45: note: expected 'I2C_Handle_t *' but argument is of type 'I2C_RegDef_t *'
+   37 | static void I2C_ClearADDRFlag(I2C_Handle_t *pI2CHandle){
+      |                               ~~~~~~~~~~~~~~^~~~~~~~~~
+../Drivers/Src/stm32f446xx_i2c_driver.c:513:41: warning: implicit declaration of function 'I2C_CloseSendData'; did you mean 'I2C_MasterSendData'? [-Wimplicit-function-declaration]
+  513 |                                         I2C_CloseSendData();
+      |                                         ^~~~~~~~~~~~~~~~~
+      |                                         I2C_MasterSendData
+../Drivers/Src/stm32f446xx_i2c_driver.c:516:101: error: expected ';' before '}' token
+  516 |                                         I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_TX_COMPLETE)
+      |                                                                                                     ^
+      |                                                                                                     ;
+  517 |                                 }
+      |                                 ~                                                                    
+../Drivers/Src/stm32f446xx_i2c_driver.c:533:70: error: expected ';' before '}' token
+  533 |                 I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_STOP)
+      |                                                                      ^
+      |                                                                      ;
+  534 |         }
+      |         ~                                                             
+make: *** [Drivers/Src/subdir.mk:25: Drivers/Src/stm32f446xx_i2c_driver.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+10:57:50 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_i2c_driver.d" -MT"Drivers/Src/stm32f446xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_i2c_driver.o"
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_MasterHandleRXNEInterrupt':
+../Drivers/Src/stm32f446xx_i2c_driver.c:453:17: warning: implicit declaration of function 'I2C_CloseReceiveData'; did you mean 'I2C_MasterReceiveData'? [-Wimplicit-function-declaration]
+  453 |                 I2C_CloseReceiveData();
+      |                 ^~~~~~~~~~~~~~~~~~~~
+      |                 I2C_MasterReceiveData
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_EV_IRQHandling':
+../Drivers/Src/stm32f446xx_i2c_driver.c:496:45: warning: passing argument 1 of 'I2C_ClearADDRFlag' from incompatible pointer type [-Wincompatible-pointer-types]
+  496 |                 I2C_ClearADDRFlag(pI2CHandle->pI2Cx);
+      |                                   ~~~~~~~~~~^~~~~~~
+      |                                             |
+      |                                             I2C_RegDef_t *
+../Drivers/Src/stm32f446xx_i2c_driver.c:37:45: note: expected 'I2C_Handle_t *' but argument is of type 'I2C_RegDef_t *'
+   37 | static void I2C_ClearADDRFlag(I2C_Handle_t *pI2CHandle){
+      |                               ~~~~~~~~~~~~~~^~~~~~~~~~
+../Drivers/Src/stm32f446xx_i2c_driver.c:513:41: warning: implicit declaration of function 'I2C_CloseSendData'; did you mean 'I2C_MasterSendData'? [-Wimplicit-function-declaration]
+  513 |                                         I2C_CloseSendData();
+      |                                         ^~~~~~~~~~~~~~~~~
+      |                                         I2C_MasterSendData
+../Drivers/Src/stm32f446xx_i2c_driver.c:516:101: error: expected ';' before '}' token
+  516 |                                         I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_TX_COMPLETE)
+      |                                                                                                     ^
+      |                                                                                                     ;
+  517 |                                 }
+      |                                 ~                                                                    
+../Drivers/Src/stm32f446xx_i2c_driver.c:533:70: error: expected ';' before '}' token
+  533 |                 I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_STOP)
+      |                                                                      ^
+      |                                                                      ;
+  534 |         }
+      |         ~                                                             
+make: *** [Drivers/Src/subdir.mk:25: Drivers/Src/stm32f446xx_i2c_driver.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+10:58:21 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_i2c_driver.d" -MT"Drivers/Src/stm32f446xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_i2c_driver.o"
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_MasterHandleRXNEInterrupt':
+../Drivers/Src/stm32f446xx_i2c_driver.c:453:17: warning: implicit declaration of function 'I2C_CloseReceiveData'; did you mean 'I2C_MasterReceiveData'? [-Wimplicit-function-declaration]
+  453 |                 I2C_CloseReceiveData();
+      |                 ^~~~~~~~~~~~~~~~~~~~
+      |                 I2C_MasterReceiveData
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_EV_IRQHandling':
+../Drivers/Src/stm32f446xx_i2c_driver.c:513:41: warning: implicit declaration of function 'I2C_CloseSendData'; did you mean 'I2C_MasterSendData'? [-Wimplicit-function-declaration]
+  513 |                                         I2C_CloseSendData();
+      |                                         ^~~~~~~~~~~~~~~~~
+      |                                         I2C_MasterSendData
+../Drivers/Src/stm32f446xx_i2c_driver.c:516:101: error: expected ';' before '}' token
+  516 |                                         I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_TX_COMPLETE)
+      |                                                                                                     ^
+      |                                                                                                     ;
+  517 |                                 }
+      |                                 ~                                                                    
+../Drivers/Src/stm32f446xx_i2c_driver.c:533:70: error: expected ';' before '}' token
+  533 |                 I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_STOP)
+      |                                                                      ^
+      |                                                                      ;
+  534 |         }
+      |         ~                                                             
+make: *** [Drivers/Src/subdir.mk:25: Drivers/Src/stm32f446xx_i2c_driver.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+10:58:56 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_i2c_driver.d" -MT"Drivers/Src/stm32f446xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_i2c_driver.o"
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_MasterHandleRXNEInterrupt':
+../Drivers/Src/stm32f446xx_i2c_driver.c:453:17: warning: implicit declaration of function 'I2C_CloseReceiveData'; did you mean 'I2C_MasterReceiveData'? [-Wimplicit-function-declaration]
+  453 |                 I2C_CloseReceiveData();
+      |                 ^~~~~~~~~~~~~~~~~~~~
+      |                 I2C_MasterReceiveData
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_EV_IRQHandling':
+../Drivers/Src/stm32f446xx_i2c_driver.c:513:41: warning: implicit declaration of function 'I2C_CloseSendData'; did you mean 'I2C_MasterSendData'? [-Wimplicit-function-declaration]
+  513 |                                         I2C_CloseSendData();
+      |                                         ^~~~~~~~~~~~~~~~~
+      |                                         I2C_MasterSendData
+../Drivers/Src/stm32f446xx_i2c_driver.c:533:70: error: expected ';' before '}' token
+  533 |                 I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_STOP)
+      |                                                                      ^
+      |                                                                      ;
+  534 |         }
+      |         ~                                                             
+make: *** [Drivers/Src/subdir.mk:25: Drivers/Src/stm32f446xx_i2c_driver.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+10:59:10 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_i2c_driver.d" -MT"Drivers/Src/stm32f446xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_i2c_driver.o"
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_MasterHandleRXNEInterrupt':
+../Drivers/Src/stm32f446xx_i2c_driver.c:453:17: warning: implicit declaration of function 'I2C_CloseReceiveData'; did you mean 'I2C_MasterReceiveData'? [-Wimplicit-function-declaration]
+  453 |                 I2C_CloseReceiveData();
+      |                 ^~~~~~~~~~~~~~~~~~~~
+      |                 I2C_MasterReceiveData
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_EV_IRQHandling':
+../Drivers/Src/stm32f446xx_i2c_driver.c:513:41: warning: implicit declaration of function 'I2C_CloseSendData'; did you mean 'I2C_MasterSendData'? [-Wimplicit-function-declaration]
+  513 |                                         I2C_CloseSendData();
+      |                                         ^~~~~~~~~~~~~~~~~
+      |                                         I2C_MasterSendData
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   4068	     32	   1640	   5740	   166c	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+11:09:09 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/011_I2C_Master_Rx_Testing.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/011_I2C_Master_Rx_Testing.d" -MT"Src/011_I2C_Master_Rx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/011_I2C_Master_Rx_Testing.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_i2c_driver.d" -MT"Drivers/Src/stm32f446xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_i2c_driver.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_spi_driver.d" -MT"Drivers/Src/stm32f446xx_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_spi_driver.o"
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_MasterHandleRXNEInterrupt':
+../Drivers/Src/stm32f446xx_i2c_driver.c:452:17: error: too few arguments to function 'I2C_CloseReceiveData'
+  452 |                 I2C_CloseReceiveData();
+      |                 ^~~~~~~~~~~~~~~~~~~~
+In file included from ../Drivers/Src/stm32f446xx_i2c_driver.c:8:
+/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc/stm32f446xx_i2c_driver.h:116:6: note: declared here
+  116 | void I2C_CloseReceiveData(I2C_Handle_t *pI2CHandle);
+      |      ^~~~~~~~~~~~~~~~~~~~
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_EV_IRQHandling':
+../Drivers/Src/stm32f446xx_i2c_driver.c:512:41: error: too few arguments to function 'I2C_CloseSendData'
+  512 |                                         I2C_CloseSendData();
+      |                                         ^~~~~~~~~~~~~~~~~
+In file included from ../Drivers/Src/stm32f446xx_i2c_driver.c:8:
+/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc/stm32f446xx_i2c_driver.h:117:6: note: declared here
+  117 | void I2C_CloseSendData(I2C_Handle_t *pI2CHandle);
+      |      ^~~~~~~~~~~~~~~~~
+make: *** [Drivers/Src/subdir.mk:25: Drivers/Src/stm32f446xx_i2c_driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+11:09:40 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_i2c_driver.d" -MT"Drivers/Src/stm32f446xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_i2c_driver.o"
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_EV_IRQHandling':
+../Drivers/Src/stm32f446xx_i2c_driver.c:512:41: error: too few arguments to function 'I2C_CloseSendData'
+  512 |                                         I2C_CloseSendData();
+      |                                         ^~~~~~~~~~~~~~~~~
+In file included from ../Drivers/Src/stm32f446xx_i2c_driver.c:8:
+/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc/stm32f446xx_i2c_driver.h:117:6: note: declared here
+  117 | void I2C_CloseSendData(I2C_Handle_t *pI2CHandle);
+      |      ^~~~~~~~~~~~~~~~~
+make: *** [Drivers/Src/subdir.mk:25: Drivers/Src/stm32f446xx_i2c_driver.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+11:09:56 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_i2c_driver.d" -MT"Drivers/Src/stm32f446xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_i2c_driver.o"
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   4068	     32	   1640	   5740	   166c	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+11:11:22 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/011_I2C_Master_Rx_Testing.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/011_I2C_Master_Rx_Testing.d" -MT"Src/011_I2C_Master_Rx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/011_I2C_Master_Rx_Testing.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_i2c_driver.d" -MT"Drivers/Src/stm32f446xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_i2c_driver.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_spi_driver.d" -MT"Drivers/Src/stm32f446xx_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_spi_driver.o"
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   4068	     32	   1640	   5740	   166c	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+11:21:39 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_i2c_driver.d" -MT"Drivers/Src/stm32f446xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_i2c_driver.o"
+../Drivers/Src/stm32f446xx_i2c_driver.c: In function 'I2C_ER_IRQHandling':
+../Drivers/Src/stm32f446xx_i2c_driver.c:585:52: error: 'I2C_ERROR_BERR' undeclared (first use in this function); did you mean 'I2C_SR1_BERR'?
+  585 |            I2C_ApplicationEventCallback(pI2CHandle,I2C_ERROR_BERR);
+      |                                                    ^~~~~~~~~~~~~~
+      |                                                    I2C_SR1_BERR
+../Drivers/Src/stm32f446xx_i2c_driver.c:585:52: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Drivers/Src/subdir.mk:25: Drivers/Src/stm32f446xx_i2c_driver.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+11:27:48 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/011_I2C_Master_Rx_Testing.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/011_I2C_Master_Rx_Testing.d" -MT"Src/011_I2C_Master_Rx_Testing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/011_I2C_Master_Rx_Testing.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_i2c_driver.d" -MT"Drivers/Src/stm32f446xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_i2c_driver.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_spi_driver.d" -MT"Drivers/Src/stm32f446xx_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_spi_driver.o"
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   4068	     32	   1640	   5740	   166c	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+11:31:34 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_i2c_driver.d" -MT"Drivers/Src/stm32f446xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_i2c_driver.o"
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   4068	     32	   1640	   5740	   166c	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+12:03:09 **** Clean-only build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 clean 
+rm -rf ./Startup/startup_stm32f446retx.d ./Startup/startup_stm32f446retx.o
+rm -rf ./Src/011_I2C_Master_Rx_Testing.cyclo ./Src/011_I2C_Master_Rx_Testing.d ./Src/011_I2C_Master_Rx_Testing.o ./Src/011_I2C_Master_Rx_Testing.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+rm -rf ./Drivers/Src/stm32f446xx_gpio_driver.cyclo ./Drivers/Src/stm32f446xx_gpio_driver.d ./Drivers/Src/stm32f446xx_gpio_driver.o ./Drivers/Src/stm32f446xx_gpio_driver.su ./Drivers/Src/stm32f446xx_i2c_driver.cyclo ./Drivers/Src/stm32f446xx_i2c_driver.d ./Drivers/Src/stm32f446xx_i2c_driver.o ./Drivers/Src/stm32f446xx_i2c_driver.su ./Drivers/Src/stm32f446xx_spi_driver.cyclo ./Drivers/Src/stm32f446xx_spi_driver.d ./Drivers/Src/stm32f446xx_spi_driver.o ./Drivers/Src/stm32f446xx_spi_driver.su
+rm -rf 008_stm32f4xx_drivers.elf 008_stm32f4xx_drivers.list 008_stm32f4xx_drivers.map default.size.stdout
+ 
+12:03:10 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f446retx.d" -MT"Startup/startup_stm32f446retx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/012_I2C_Master_Rx_Testing_IT.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/012_I2C_Master_Rx_Testing_IT.d" -MT"Src/012_I2C_Master_Rx_Testing_IT.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/012_I2C_Master_Rx_Testing_IT.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_i2c_driver.d" -MT"Drivers/Src/stm32f446xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_i2c_driver.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_spi_driver.d" -MT"Drivers/Src/stm32f446xx_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_spi_driver.o"
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5260	     32	   1640	   6932	   1b14	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+12:03:36 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5260	     32	   1640	   6932	   1b14	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+12:07:32 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/012_I2C_Master_Rx_Testing_IT.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/012_I2C_Master_Rx_Testing_IT.d" -MT"Src/012_I2C_Master_Rx_Testing_IT.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/012_I2C_Master_Rx_Testing_IT.o"
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5300	     32	   1640	   6972	   1b3c	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+12:07:47 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5300	     32	   1640	   6972	   1b3c	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 

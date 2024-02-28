@@ -72,13 +72,13 @@
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec.1142154263" name="MCU Output Converter Motorola S-rec with symbols" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec"/>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.413759959.1701615084" name="010_I2C_Master_Tx_Testing.c" rcbsApplicability="disable" resourcePath="Src/010_I2C_Master_Tx_Testing.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.11304577.266658680">
-						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.11304577.266658680" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.11304577"/>
+					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.413759959.1068902234" name="011_I2C_Master_Rx_Testing.c" rcbsApplicability="disable" resourcePath="Src/011_I2C_Master_Rx_Testing.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.11304577.1215784718">
+						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.11304577.1215784718" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.11304577"/>
 					</fileInfo>
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Inc"/>
-						<entry excluding="010_I2C_Master_Tx_Testing.c|009_SPI_Message_Rcv_It.c|008_SPI_Cmd_Handling.c|007_SPI_TxOnly_Arduino.c|006_SPI_Tx_Testing.c|005_Button_Interrupt.c|main.c|003_Led_Button_External.c|002_Led_Button.c|001_Led_Toggle.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
+						<entry excluding="011_I2C_Master_Rx_Testing.c|010_I2C_Master_Tx_Testing.c|009_SPI_Message_Rcv_It.c|008_SPI_Cmd_Handling.c|007_SPI_TxOnly_Arduino.c|006_SPI_Tx_Testing.c|005_Button_Interrupt.c|main.c|003_Led_Button_External.c|002_Led_Button.c|001_Led_Toggle.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Startup"/>
 					</sourceEntries>
 				</configuration>

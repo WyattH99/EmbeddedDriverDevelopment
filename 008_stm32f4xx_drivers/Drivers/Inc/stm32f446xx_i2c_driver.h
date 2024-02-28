@@ -89,6 +89,18 @@ typedef struct{
 #define MASTER_WRITE		1
 
 /*
+ * I2C Application Events Macros
+ */
+#define I2C_EV_TX_COMPLETE		0
+#define I2C_EV_RX_COMPLETE		1
+#define I2C_EV_STOP				2
+#define I2C_ERROR_BERR			3
+#define I2C_ERROR_ARLO			4
+#define I2C_ERROR_AF			5
+#define I2C_ERROR_OVR			6
+#define I2C_ERROR_TIMEOUT		7
+
+/*
  * API Prototypes
  */
 
@@ -106,6 +118,9 @@ void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxBuffer, uint8_t
 uint8_t I2C_MasterSendDataIT(I2C_Handle_t *pI2CHandle, uint8_t *pTxBuffer, uint8_t Length, uint8_t SlaveAddr, uint8_t Sr);
 uint8_t I2C_MasterReceiveDataIT(I2C_Handle_t *pI2CHandle, uint8_t *pRxBuffer, uint8_t Length, uint8_t SlaveAddr, uint8_t Sr);
 
+void I2C_CloseReceiveData(I2C_Handle_t *pI2CHandle);
+void I2C_CloseSendData(I2C_Handle_t *pI2CHandle);
+
 // IRQ Configurations and ISR Handling
 void I2C_IRQInterruptConfig(uint8_t IRQNumber,uint8_t EnOrDi);
 void I2C_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority);
@@ -116,12 +131,14 @@ void I2C_ER_IRQHandling(I2C_Handle_t *pI2CHandle);
 void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
 uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName);
 void I2C_ManageAcking(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
+void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx);
 
 
 /*
  * Application Callback
  */
 void I2C_ApplicationEventCallback(I2C_Handle_t *pI2CHandle, uint8_t AppEvent);
+
 
 
 
