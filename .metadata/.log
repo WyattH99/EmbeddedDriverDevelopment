@@ -8487,3 +8487,48 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-02-28 13:09:46.389
 !MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 4000000; div: 2
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-02-28 13:17:51.114
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 4000000; div: 2
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-02-28 13:24:47.058
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 4000000; div: 2
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-02-28 13:31:08.028
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 4000000; div: 2
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-02-28 13:37:06.401
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 4000000; div: 2
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-02-28 13:38:22.020
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 4000000; div: 2
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-02-28 13:38:23.118
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 10 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-02-28 13:38:23.118
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-02-28 13:38:23.118
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 10 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-02-28 13:38:23.118
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-02-28 13:43:01.170
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 4000000; div: 2
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-02-28 13:44:21.541
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 4000000; div: 2
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-02-28 13:44:22.634
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 12 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-02-28 13:44:22.635
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-02-28 13:44:22.635
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 12 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-02-28 13:44:22.635
+!MESSAGE Existing sessions are:
