@@ -367,7 +367,7 @@ uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx , uint32_t FlagName){
 
 
 void USART_ClearFlag(USART_RegDef_t *pUSARTx, uint16_t StatusFlagName){
-	pUSARTx->SR &= ~(StatusFlagName);
+
 }
 
 

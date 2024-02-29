@@ -269,11 +269,11 @@ uint8_t USART_SendDataIT(USART_Handle_t *pUSARTHandle,uint8_t *pTxBuffer, uint32
 		pUSARTHandle->TxBusyState = USART_BUSY_IN_TX;
 
 		//Implement the code to enable interrupt for TXE
-		pUSARTHandle->pUSARTx->CR1 |= (1 << USART_CR1_TXEIE);
+		TODO
 
 
 		//Implement the code to enable interrupt for TC
-		pUSARTHandle->pUSARTx->CR1 |= (1 << USART_CR1_TCIE);
+		TODO
 
 
 	}
@@ -283,16 +283,17 @@ uint8_t USART_SendDataIT(USART_Handle_t *pUSARTHandle,uint8_t *pTxBuffer, uint32
 
 
 uint8_t USART_ReceiveDataIT(USART_Handle_t *pUSARTHandle, uint8_t *pRxBuffer, uint32_t Len){
-	uint8_t rxstate = pUSARTHandle->RxBusyState;
+	uint8_t rxstate = pUSARTHandle->TODO;
 
-	if(rxstate != USART_BUSY_IN_RX)
+	if(rxstate != TODO)
 	{
 		pUSARTHandle->RxLen = Len;
-		pUSARTHandle->pRxBuffer = pRxBuffer;
-		pUSARTHandle->RxBusyState = USART_BUSY_IN_RX;
+		pUSARTHandle->pRxBuffer = TODO;
+		pUSARTHandle->RxBusyState = TODO;
 
 		//Implement the code to enable interrupt for RXNE
-		pUSARTHandle->pUSARTx->CR1 |= (1 << USART_CR1_RXNEIE);
+		TODO
+
 	}
 
 	return rxstate;
@@ -367,7 +368,7 @@ uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx , uint32_t FlagName){
 
 
 void USART_ClearFlag(USART_RegDef_t *pUSARTx, uint16_t StatusFlagName){
-	pUSARTx->SR &= ~(StatusFlagName);
+
 }
 
 

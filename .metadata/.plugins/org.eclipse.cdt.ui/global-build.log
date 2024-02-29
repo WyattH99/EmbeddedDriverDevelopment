@@ -1035,3 +1035,98 @@ arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_usart_driver.c" -mcpu=cortex-m4 -s
       | ^
 make: *** [Drivers/Src/subdir.mk:28: Drivers/Src/stm32f446xx_usart_driver.o] Error 1
 "make -j12 all" terminated with exit code 2. Build might be incomplete.
+12:54:35 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_usart_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_usart_driver.d" -MT"Drivers/Src/stm32f446xx_usart_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_usart_driver.o"
+../Drivers/Src/stm32f446xx_usart_driver.c: In function 'USART_SendDataIT':
+../Drivers/Src/stm32f446xx_usart_driver.c:166:1: warning: control reaches end of non-void function [-Wreturn-type]
+  166 | }
+      | ^
+../Drivers/Src/stm32f446xx_usart_driver.c: In function 'USART_ReceiveDataIT':
+../Drivers/Src/stm32f446xx_usart_driver.c:171:1: warning: control reaches end of non-void function [-Wreturn-type]
+  171 | }
+      | ^
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5128	    440	   1624	   7192	   1c18	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+13:14:23 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/014_I2C_Slave_Tx_String_Length.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/014_I2C_Slave_Tx_String_Length.d" -MT"Src/014_I2C_Slave_Tx_String_Length.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/014_I2C_Slave_Tx_String_Length.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_i2c_driver.d" -MT"Drivers/Src/stm32f446xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_i2c_driver.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_spi_driver.d" -MT"Drivers/Src/stm32f446xx_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_spi_driver.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_usart_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_usart_driver.d" -MT"Drivers/Src/stm32f446xx_usart_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_usart_driver.o"
+../Drivers/Src/stm32f446xx_usart_driver.c: In function 'USART_SendData':
+../Drivers/Src/stm32f446xx_usart_driver.c:160:68: error: 'USART_FLAG_TXE' undeclared (first use in this function); did you mean 'USART_SR_TXE'?
+  160 |                 while(! USART_GetFlagStatus(pUSARTHandle->pUSARTx, USART_FLAG_TXE));
+      |                                                                    ^~~~~~~~~~~~~~
+      |                                                                    USART_SR_TXE
+../Drivers/Src/stm32f446xx_usart_driver.c:160:68: note: each undeclared identifier is reported only once for each function it appears in
+../Drivers/Src/stm32f446xx_usart_driver.c:195:61: error: 'USART_FLAG_TC' undeclared (first use in this function); did you mean 'USART_SR_TC'?
+  195 |         while( ! USART_GetFlagStatus(pUSARTHandle->pUSARTx, USART_FLAG_TC));
+      |                                                             ^~~~~~~~~~~~~
+      |                                                             USART_SR_TC
+../Drivers/Src/stm32f446xx_usart_driver.c: In function 'USART_ReceiveData':
+../Drivers/Src/stm32f446xx_usart_driver.c:204:69: error: 'USART_FLAG_RXNE' undeclared (first use in this function); did you mean 'USART_SR_RXNE'?
+  204 |                 while( ! USART_GetFlagStatus(pUSARTHandle->pUSARTx, USART_FLAG_RXNE));
+      |                                                                     ^~~~~~~~~~~~~~~
+      |                                                                     USART_SR_RXNE
+../Drivers/Src/stm32f446xx_usart_driver.c: In function 'USART_SendDataIT':
+../Drivers/Src/stm32f446xx_usart_driver.c:282:1: warning: control reaches end of non-void function [-Wreturn-type]
+  282 | }
+      | ^
+../Drivers/Src/stm32f446xx_usart_driver.c: In function 'USART_ReceiveDataIT':
+../Drivers/Src/stm32f446xx_usart_driver.c:300:1: warning: control reaches end of non-void function [-Wreturn-type]
+  300 | }
+      | ^
+make: *** [Drivers/Src/subdir.mk:28: Drivers/Src/stm32f446xx_usart_driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+13:19:08 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/014_I2C_Slave_Tx_String_Length.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/014_I2C_Slave_Tx_String_Length.d" -MT"Src/014_I2C_Slave_Tx_String_Length.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/014_I2C_Slave_Tx_String_Length.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_gpio_driver.d" -MT"Drivers/Src/stm32f446xx_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_gpio_driver.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_i2c_driver.d" -MT"Drivers/Src/stm32f446xx_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_i2c_driver.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_spi_driver.d" -MT"Drivers/Src/stm32f446xx_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_spi_driver.o"
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_usart_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_usart_driver.d" -MT"Drivers/Src/stm32f446xx_usart_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_usart_driver.o"
+../Drivers/Src/stm32f446xx_usart_driver.c: In function 'USART_SendDataIT':
+../Drivers/Src/stm32f446xx_usart_driver.c:282:1: warning: control reaches end of non-void function [-Wreturn-type]
+  282 | }
+      | ^
+../Drivers/Src/stm32f446xx_usart_driver.c: In function 'USART_ReceiveDataIT':
+../Drivers/Src/stm32f446xx_usart_driver.c:300:1: warning: control reaches end of non-void function [-Wreturn-type]
+  300 | }
+      | ^
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5128	    440	   1624	   7192	   1c18	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+13:37:27 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_usart_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_usart_driver.d" -MT"Drivers/Src/stm32f446xx_usart_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_usart_driver.o"
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5128	    440	   1624	   7192	   1c18	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 

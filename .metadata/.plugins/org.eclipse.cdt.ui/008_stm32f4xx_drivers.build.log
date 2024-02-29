@@ -1,22 +1,17 @@
-09:38:31 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+13:37:27 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
 make -j12 all 
 arm-none-eabi-gcc "../Drivers/Src/stm32f446xx_usart_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Src/stm32f446xx_usart_driver.d" -MT"Drivers/Src/stm32f446xx_usart_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/Src/stm32f446xx_usart_driver.o"
-../Drivers/Src/stm32f446xx_usart_driver.c: In function 'USART_PeripheralControl':
-../Drivers/Src/stm32f446xx_usart_driver.c:135:39: error: 'USART_CR1_SPE' undeclared (first use in this function); did you mean 'USART_CR1_PS'?
-  135 |                 pUSARTx->CR1 |= (1 << USART_CR1_SPE); // TODO
-      |                                       ^~~~~~~~~~~~~
-      |                                       USART_CR1_PS
-../Drivers/Src/stm32f446xx_usart_driver.c:135:39: note: each undeclared identifier is reported only once for each function it appears in
-../Drivers/Src/stm32f446xx_usart_driver.c: In function 'USART_SendDataIT':
-../Drivers/Src/stm32f446xx_usart_driver.c:76:1: warning: control reaches end of non-void function [-Wreturn-type]
-   76 | }
-      | ^
-../Drivers/Src/stm32f446xx_usart_driver.c: In function 'USART_ReceiveDataIT':
-../Drivers/Src/stm32f446xx_usart_driver.c:81:1: warning: control reaches end of non-void function [-Wreturn-type]
-   81 | }
-      | ^
-make: *** [Drivers/Src/subdir.mk:28: Drivers/Src/stm32f446xx_usart_driver.o] Error 1
-"make -j12 all" terminated with exit code 2. Build might be incomplete.
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   5128	    440	   1624	   7192	   1c18	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
 
-09:38:32 Build Failed. 2 errors, 2 warnings. (took 570ms)
+13:37:27 Build Finished. 0 errors, 0 warnings. (took 619ms)
 
