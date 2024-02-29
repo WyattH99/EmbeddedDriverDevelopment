@@ -155,6 +155,18 @@ typedef struct{
 } I2C_RegDef_t;
 
 
+// USART Register Definition
+typedef struct{
+	volatile uint32_t SR;			// Status Register						OFFSET: 0x00
+	volatile uint32_t DR;			// Data Register						OFFSET: 0x04
+	volatile uint32_t BRR;			// Baud Rate Register					OFFSET: 0x08
+	volatile uint32_t CR1;			// Control Register 1					OFFSET: 0x0C
+	volatile uint32_t CR2;			// Control Register 2					OFFSET: 0x10
+	volatile uint32_t CR3;			// Control Register 3					OFFSET: 0x14
+	volatile uint32_t GTPR;			// Guard Time and Pre-scaler Register	OFFSET: 0x18
+} USART_RegDef_t;
+
+
 // RCC Register Definition
 typedef struct{
 	volatile uint32_t CR;				// Clock Control Register											OFFSET: 0x00
@@ -246,6 +258,11 @@ typedef struct{
 #define I2C1		((I2C_RegDef_t*) I2C1_BASEADDR)
 #define I2C2		((I2C_RegDef_t*) I2C2_BASEADDR)
 #define I2C3		((I2C_RegDef_t*) I2C3_BASEADDR)
+
+#define USART1		((USART_RegDef_t*) USART1_BASEADDR)
+#define USART2		((USART_RegDef_t*) USART2_BASEADDR)
+#define USART3		((USART_RegDef_t*) USART3_BASEADDR)
+#define USART6		((USART_RegDef_t*) USART6_BASEADDR)
 
 /*
  * Clock Enable Macros for GPIOx Peripherals
@@ -366,6 +383,15 @@ typedef struct{
 #define I2C1_REG_RESET()	do{ (RCC->APB1RSTR |= (1 << 21)); (RCC->APB1RSTR &= ~(1 << 21)); }while(0)
 #define I2C2_REG_RESET()	do{ (RCC->APB1RSTR |= (1 << 22)); (RCC->APB1RSTR &= ~(1 << 22)); }while(0)
 #define I2C3_REG_RESET()	do{ (RCC->APB1RSTR |= (1 << 23)); (RCC->APB1RSTR &= ~(1 << 23)); }while(0)
+
+
+/*
+ * Reset USARTx Peripherals
+ */
+#define USART1_REG_RESET()	do{ (RCC->APB2RSTR |= (1 << 4)); (RCC->APB2RSTR &= ~(1 << 4)); }while(0)
+#define USART2_REG_RESET()	do{ (RCC->APB1RSTR |= (1 << 17)); (RCC->APB1RSTR &= ~(1 << 17)); }while(0)
+#define USART3_REG_RESET()	do{ (RCC->APB1RSTR |= (1 << 18)); (RCC->APB1RSTR &= ~(1 << 18)); }while(0)
+#define USART6_REG_RESET()	do{ (RCC->APB2RSTR |= (1 << 5)); (RCC->APB2RSTR &= ~(1 << 5)); }while(0)
 
 
 /*
@@ -535,6 +561,80 @@ typedef struct{
 #define I2C_CCR_FS				15
 
 
+/*
+ * Bit Positions for USART Peripheral Registers
+ */
+/*
+ * USART Status Register
+ */
+#define USART_SR_PE				0
+#define USART_SR_FE				1
+#define USART_SR_NF				2
+#define USART_SR_ORE			3
+#define USART_SR_IDLE			4
+#define USART_SR_RXNE			5
+#define USART_SR_TC				6
+#define USART_SR_TXE			7
+#define USART_SR_LBD			8
+#define USART_SR_CTS			9
+
+
+/*
+ * USART Control Register 1
+ */
+#define USART_CR1_SBK			0
+#define USART_CR1_RWU			1
+#define USART_CR1_RE			2
+#define USART_CR1_TE			3
+#define USART_CR1_IDLEIE		4
+#define USART_CR1_RXNEIE		5
+#define USART_CR1_TCIE			6
+#define USART_CR1_TXEIE			7
+#define USART_CR1_PEIE			8
+#define USART_CR1_PS			9
+#define USART_CR1_PCE			10
+#define USART_CR1_WAKE			11
+#define USART_CR1_M				12
+#define USART_CR1_UE			13
+#define USART_CR1_OVER8			15
+
+/*
+ * USART Control Register 2
+ */
+#define USART_CR2_ADD			0
+#define USART_CR2_LBDL			5
+#define USART_CR2_LBDIE			6
+#define USART_CR2_LBCL			8
+#define USART_CR2_CPHA			9
+#define USART_CR2_CPOL			10
+#define USART_CR2_CLKEN			11
+#define USART_CR2_STOP			12
+#define USART_CR2_LINEN			14
+
+
+/*
+ * USART Control Register 3
+ */
+#define USART_CR3_EIE			0
+#define USART_CR3_IREN			1
+#define USART_CR3_IRLP			2
+#define USART_CR3_HDSEL			3
+#define USART_CR3_NACK			4
+#define USART_CR3_SCEN			5
+#define USART_CR3_DMAR			6
+#define USART_CR3_DMAT			7
+#define USART_CR3_RTSE			8
+#define USART_CR3_CTSE			9
+#define USART_CR3_CTSIE			10
+#define USART_CR3_ONEBIT		11
+
+
+/*
+ * USART Control Register 3
+ */
+#define USART_GTPR_PSC			0
+#define USART_GTPR_GT			8
+
 
 
 /*
@@ -554,6 +654,7 @@ typedef struct{
 #include "stm32f446xx_gpio_driver.h"
 #include "stm32f446xx_spi_driver.h"
 #include "stm32f446xx_i2c_driver.h"
+#include "stm32f446xx_usart_driver.h"
 
 
 #endif /* INC_STM32F446XX_H_ */

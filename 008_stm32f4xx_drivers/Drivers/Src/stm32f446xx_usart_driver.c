@@ -1,0 +1,273 @@
+/*
+ * stm32f446xx_usart_driver.c
+ *
+ *  Created on: Feb 28, 2024
+ *      Author: wyatt
+ */
+
+
+#include "stm32f446xx_usart_driver.h"
+
+
+
+// USART Peripheral Clock Control
+void USART_PeriClockControl(USART_RegDef_t *pUSARTx, uint8_t EnOrDi){
+	if(EnOrDi == ENABLE){
+		// Enable
+		if(pUSARTx == USART1){
+			USART1_PCLK_EN();
+		}else if(pUSARTx == USART2){
+			USART2_PCLK_EN();
+		}else if(pUSARTx == USART3){
+			USART3_PCLK_EN();
+		}else if(pUSARTx == USART6){
+			USART6_PCLK_EN();
+		}
+	}else{
+		// Disable
+		if(pUSARTx == USART1){
+			USART1_PCLK_DI();
+		}else if(pUSARTx == USART2){
+			USART2_PCLK_DI();
+		}else if(pUSARTx == USART3){
+			USART3_PCLK_DI();
+		}else if(pUSARTx == USART6){
+			USART6_PCLK_DI();
+		}
+	}
+}
+
+
+// USART Initialization
+void USART_Init(USART_Handle_t *pUSARTHandle){
+
+	//Temporary variable
+	uint32_t tempreg=0;
+
+/******************************** Configuration of CR1******************************************/
+
+	//Implement the code to enable the Clock for given USART peripheral
+	 TODO
+
+	//Enable USART Tx and Rx engines according to the USART_Mode configuration item
+	if ( pUSARTHandle->USART_Config.USART_Mode == USART_MODE_ONLY_RX)
+	{
+		//Implement the code to enable the Receiver bit field
+		tempreg|= (1 << TODO);
+	}else if (pUSARTHandle->USART_Config.USART_Mode == USART_MODE_ONLY_TX)
+	{
+		//Implement the code to enable the Transmitter bit field
+		tempreg |= ( 1 << TODO );
+
+	}else if (pUSARTHandle->USART_Config.USART_Mode == USART_MODE_TXRX)
+	{
+		//Implement the code to enable the both Transmitter and Receiver bit fields
+		tempreg |= ( ( 1 << TODO) | ( 1 << TODO) );
+	}
+
+    //Implement the code to configure the Word length configuration item
+	tempreg |= pUSARTHandle->USART_Config.USART_WordLength << TODO ;
+
+
+    //Configuration of parity control bit fields
+	if ( pUSARTHandle->USART_Config.USART_ParityControl == USART_PARITY_EN_EVEN)
+	{
+		//Implement the code to enale the parity control
+		tempreg |= ( 1 << TODO);
+
+		//Implement the code to enable EVEN parity
+		//Not required because by default EVEN parity will be selected once you enable the parity control
+
+	}else if (pUSARTHandle->USART_Config.USART_ParityControl == USART_PARITY_EN_ODD )
+	{
+		//Implement the code to enable the parity control
+	    tempreg |= ( 1 << USART_CR1_PCE);
+
+	    //Implement the code to enable ODD parity
+	    tempreg |= ( 1 << TODO);
+
+	}
+
+   //Program the CR1 register
+	pUSARTHandle->pUSARTx->CR1 = TODO;
+
+/******************************** Configuration of CR2******************************************/
+
+	tempreg=0;
+
+	//Implement the code to configure the number of stop bits inserted during USART frame transmission
+	tempreg |= pUSARTHandle->USART_Config.TODO << TODO;
+
+	//Program the CR2 register
+	pUSARTHandle->pUSARTx->TODO = tempreg;
+
+/******************************** Configuration of CR3******************************************/
+
+	tempreg=0;
+
+	//Configuration of USART hardware flow control
+	if ( pUSARTHandle->USART_Config.USART_HWFlowControl == USART_HW_FLOW_CTRL_CTS)
+	{
+		//Implement the code to enable CTS flow control
+		tempreg |= ( 1 << TODO);
+
+
+	}else if (pUSARTHandle->USART_Config.USART_HWFlowControl == USART_HW_FLOW_CTRL_RTS)
+	{
+		//Implement the code to enable RTS flow control
+		tempreg |= TODO
+
+	}else if (pUSARTHandle->USART_Config.USART_HWFlowControl == USART_HW_FLOW_CTRL_CTS_RTS)
+	{
+		//Implement the code to enable both CTS and RTS Flow control
+		TODO
+	}
+
+
+	pUSARTHandle->pUSARTx->TODO = tempreg;
+
+/******************************** Configuration of BRR(Baudrate register)******************************************/
+
+	//Implement the code to configure the baud rate
+	//We will cover this in the lecture. No action required here
+
+}
+
+
+// USART De-Initialization
+void USART_DeInit(USART_RegDef_t *pUSARTx){
+	if(pUSARTx == USART1){
+		USART1_REG_RESET();
+	}else if(pUSARTx == USART2){
+		USART2_REG_RESET();
+	}else if(pUSARTx == USART3){
+		USART3_REG_RESET();
+	}else if(pUSARTx == USART6){
+		USART6_REG_RESET();
+	}
+}
+
+
+/*
+ * Data Send and Receive
+ */
+void USART_SendData(USART_RegDef_t *pUSARTx,uint8_t *pTxBuffer, uint32_t Len){
+
+}
+
+
+void USART_ReceiveData(USART_RegDef_t *pUSARTx, uint8_t *pRxBuffer, uint32_t Len){
+
+}
+
+
+uint8_t USART_SendDataIT(USART_Handle_t *pUSARTHandle,uint8_t *pTxBuffer, uint32_t Len){
+
+}
+
+
+uint8_t USART_ReceiveDataIT(USART_Handle_t *pUSARTHandle, uint8_t *pRxBuffer, uint32_t Len){
+
+}
+
+
+/*
+ * IRQ Configuration and ISR handling
+ */
+void USART_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnOrDi){
+	if(EnOrDi == ENABLE){
+		// Enable
+		if(IRQNumber <= 31){
+			// Program ISER0 Register
+			*NVIC_ISER0 |= (1 << IRQNumber);
+		}else if(IRQNumber > 31 && IRQNumber < 64){
+			// Program ISER1 Register
+			*NVIC_ISER1 |= (1 << (IRQNumber % 32));
+		}else if(IRQNumber >= 64 && IRQNumber < 96){
+			// Program ISER2 Register
+			*NVIC_ISER2 |= (1 << (IRQNumber % 32));
+		}
+	}else{
+		// Disable
+		if(IRQNumber <= 31){
+			// Program ICER0 Register
+			*NVIC_ICER0 |= (1 << IRQNumber);
+		}else if(IRQNumber > 31 && IRQNumber < 64){
+			// Program ICER1 Register
+			*NVIC_ICER1 |= (1 << (IRQNumber % 32));
+		}else if(IRQNumber >= 64 && IRQNumber < 96){
+			// Program ICER2 Register
+			*NVIC_ICER2 |= (1 << (IRQNumber % 32));
+		}
+	}
+}
+
+
+void USART_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority){
+	uint8_t iprx = IRQNumber / 4;
+	uint8_t iprx_section = IRQNumber % 4;
+	uint8_t shift_amount = (8 * iprx_section) + (8 - NUM_PR_BITS_IMPLEMENTED);
+	*(NVIC_IPR_BASE_ADDR + iprx) |= (IRQPriority << shift_amount);
+}
+
+
+void USART_IRQHandling(USART_Handle_t *pHandle){
+
+}
+
+
+/*
+ * Other Peripheral Control APIs
+ */
+void USART_PeripheralControl(USART_RegDef_t *pUSARTx, uint8_t EnOrDi){
+	if(EnOrDi == ENABLE){
+		// Enable
+		pUSARTx->CR1 |= (1 << USART_CR1_SPE); // TODO
+	}else{
+		// Disable
+		pUSARTx->CR1 &= ~(1 << USART_CR1_SPE); // TODO
+	}
+}
+
+
+uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx , uint32_t FlagName){
+	if(pUSARTx->SR & FlagName){
+		return FLAG_SET;
+	}
+	return FLAG_RESET;
+}
+
+
+void USART_ClearFlag(USART_RegDef_t *pUSARTx, uint16_t StatusFlagName){
+
+}
+
+
+/*
+ * Application callback
+ */
+void USART_ApplicationEventCallback(USART_Handle_t *pUSARTHandle,uint8_t AppEv){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

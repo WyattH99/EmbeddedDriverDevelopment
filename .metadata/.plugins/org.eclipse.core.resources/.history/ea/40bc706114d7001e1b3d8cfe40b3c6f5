@@ -1,0 +1,50 @@
+/*
+ * stm32f446xx_usart_driver.c
+ *
+ *  Created on: Feb 28, 2024
+ *      Author: wyatt
+ */
+
+
+#include "stm32f446xx_usart_driver.h"
+
+
+
+// USART Peripheral Clock Control
+void USART_PeriClockControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi){
+
+}
+
+
+// USART Initialization
+void USART_Init(USART_Handle_t *pUSARTHandle){
+
+}
+
+
+// USART De-Initialization
+void USART_DeInit(USART_RegDef_t *pUSARTx){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
