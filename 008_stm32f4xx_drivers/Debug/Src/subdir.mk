@@ -5,17 +5,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/014_I2C_Slave_Tx_String_Length.c \
+../Src/015_UART_Tx.c \
 ../Src/syscalls.c \
 ../Src/sysmem.c 
 
 OBJS += \
-./Src/014_I2C_Slave_Tx_String_Length.o \
+./Src/015_UART_Tx.o \
 ./Src/syscalls.o \
 ./Src/sysmem.o 
 
 C_DEPS += \
-./Src/014_I2C_Slave_Tx_String_Length.d \
+./Src/015_UART_Tx.d \
 ./Src/syscalls.d \
 ./Src/sysmem.d 
 
@@ -27,7 +27,7 @@ Src/%.o Src/%.su Src/%.cyclo: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/014_I2C_Slave_Tx_String_Length.cyclo ./Src/014_I2C_Slave_Tx_String_Length.d ./Src/014_I2C_Slave_Tx_String_Length.o ./Src/014_I2C_Slave_Tx_String_Length.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+	-$(RM) ./Src/015_UART_Tx.cyclo ./Src/015_UART_Tx.d ./Src/015_UART_Tx.o ./Src/015_UART_Tx.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
 
 .PHONY: clean-Src
 

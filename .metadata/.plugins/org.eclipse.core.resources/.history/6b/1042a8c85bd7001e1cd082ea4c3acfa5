@@ -1,0 +1,111 @@
+/*
+ * 015_UART_Tx.c
+ *
+ *  Created on: Feb 29, 2024
+ *      Author: wyatt
+ */
+
+
+
+
+
+#include "stm32f446xx.h"
+#include <string.h>
+
+/*
+ * USART2 Pins:
+ * TX  -->
+ * RX  -->
+ * RTS -->
+ * CTS -->
+ * ALT Function Mode: 7
+ */
+
+#define BUTTON_PRESSED GPIO_PIN_RESET
+
+
+USART_Handle_t USART2Handle;
+
+// Receive Buffer
+uint8_t msg[] = "This Message is Really LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONG";
+
+
+void delay(void){
+	for(uint32_t i=0; i<500000/2; i++){
+
+	}
+}
+
+void USART2_GPIOInits(void){
+
+	GPIO_Handle_t USARTPins;
+
+	// Common Settings between Pins
+	USARTPins.pGPIOx = GPIOB;
+	USARTPins.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFUN;
+	USARTPins.GPIO_PinConfig.GPIO_PinAltFunMode = 4;
+	USARTPins.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_OD;
+	USARTPins.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD; // External Pull-UP Used
+	USARTPins.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+
+
+	// SCL
+	GPIO_Handle_t USART_SCL_Pin = USARTPins;
+	USART_SCL_Pin.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_8;
+	GPIO_Init(&USART_SCL_Pin);
+
+	// SDA
+	GPIO_Handle_t USART_SDA_Pin = USARTPins;
+	USART_SDA_Pin.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_9;
+	GPIO_Init(&USART_SDA_Pin);
+
+}
+
+
+void USART1_Inits(void){
+
+	USART21Handle.pUSARTx = USART2;
+	USART2Handle.USART_Config.I2C_ACKControl = I2C_ACK_ENABLE; // TODO
+
+	USART_Init(&USART2Handle);
+
+}
+
+void GPIO_ButtonInit(void){
+
+	GPIO_Handle_t GpioButton;
+	// Configure the Button
+	GpioButton.pGPIOx = GPIOC;
+	GpioButton.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
+	GpioButton.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_INPUT;
+	GpioButton.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
+	GpioButton.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+	GPIO_Init(&GpioButton);
+}
+
+
+
+int main(void){
+
+
+	// GPIO Button
+	GPIO_ButtonInit();
+
+	// Initialize the GPIO pins
+	USART2_GPIOInits();
+
+	// Initialize the USART2 Peripheral
+	USART2_Inits();
+
+	// Enable the USART2 Peripheral
+	USART_PeripheralControl(USART2, ENABLE);
+
+	// Send data
+	USART_SendData(pUSARTHandle, pTxBuffer, Len);
+
+	while(1);
+
+
+	return 0;
+}
+
