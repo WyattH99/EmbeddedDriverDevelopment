@@ -27,7 +27,8 @@
 USART_Handle_t usart6_handle;
 
 // Receive Buffer
-uint8_t msg[] = "015_UART_TX Testing\n\r";
+//uint8_t msg[] = "015_UART_TX Testing\n\r";
+char msg[1024] = "015_UART_TX Testing\n\r";
 
 
 void delay(void){
@@ -45,7 +46,8 @@ void USART6_GPIOInits(void){
 	USARTPins.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFUN;
 	USARTPins.GPIO_PinConfig.GPIO_PinAltFunMode = 8;
 	USARTPins.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
-	USARTPins.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_PIN_PU;
+//	USARTPins.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_PIN_PU;
+	USARTPins.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
 	USARTPins.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
 
 

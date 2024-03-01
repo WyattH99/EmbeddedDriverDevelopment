@@ -1,0 +1,136 @@
+/*
+ * 015_UART_Tx.c
+ *
+ *  Created on: Feb 29, 2024
+ *      Author: wyatt
+ */
+
+
+
+
+
+#include "stm32f446xx.h"
+#include <string.h>
+
+/*
+ * USART6 Pins:
+ * TX  -->  PC6
+ * RX  -->  PC7
+ * RTS -->  NA
+ * CTS --> 	NA
+ * ALT Function Mode: 8
+ */
+
+#define BUTTON_PRESSED GPIO_PIN_RESET
+
+
+USART_Handle_t usart6_handle;
+
+// Receive Buffer
+uint8_t msg[] = "015_UART_TX Testing\n\r";
+
+
+void delay(void){
+	for(uint32_t i=0; i<500000/2; i++){
+
+	}
+}
+
+void USART6_GPIOInits(void){
+
+	GPIO_Handle_t USARTPins;
+
+	// Common Settings between Pins
+	USARTPins.pGPIOx = GPIOC;
+	USARTPins.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFUN;
+	USARTPins.GPIO_PinConfig.GPIO_PinAltFunMode = 8;
+	USARTPins.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
+	USARTPins.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_PIN_PU;
+	USARTPins.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+
+
+	// TX  -->  PC6
+	GPIO_Handle_t USART_TX_Pin = USARTPins;
+	USART_TX_Pin.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_6;
+	GPIO_Init(&USART_TX_Pin);
+
+	// RX  -->  PC7
+	GPIO_Handle_t USART_RX_Pin = USARTPins;
+	USART_RX_Pin.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_7;
+	GPIO_Init(&USART_RX_Pin);
+
+//	// RTS -->  PA1
+//	GPIO_Handle_t USART_RTS_Pin = USARTPins;
+//	USART_RTS_Pin.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_1;
+//	GPIO_Init(&USART_RTS_Pin);
+//
+//	// CTS -->  PA0
+//	GPIO_Handle_t USART_CTS_Pin = USARTPins;
+//	USART_CTS_Pin.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_0;
+//	GPIO_Init(&USART_CTS_Pin);
+
+}
+
+
+void USART6_Inits(void){
+
+	usart6_handle.pUSARTx = USART6;
+	usart6_handle.USART_Config.USART_Baud = USART_STD_BAUD_115200;
+	usart6_handle.USART_Config.USART_HWFlowControl = USART_HW_FLOW_CTRL_NONE;
+	usart6_handle.USART_Config.USART_Mode = USART_MODE_ONLY_TX;
+	usart6_handle.USART_Config.USART_NumOfStopBits = USART_STOPBITS_1;
+	usart6_handle.USART_Config.USART_ParityControl = USART_PARITY_DISABLE;
+	usart6_handle.USART_Config.USART_WordLength = USART_WORDLEN_8BITS;
+
+
+	USART_Init(&usart6_handle);
+
+}
+
+void GPIO_ButtonInit(void){
+
+	GPIO_Handle_t GpioButton;
+	// Configure the Button
+	GpioButton.pGPIOx = GPIOC;
+	GpioButton.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
+	GpioButton.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_INPUT;
+	GpioButton.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
+	GpioButton.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+	GPIO_Init(&GpioButton);
+}
+
+
+
+int main(void){
+
+
+	// GPIO Button
+	GPIO_ButtonInit();
+
+	// Initialize the GPIO pins
+	USART6_GPIOInits();
+
+	// Initialize the USART2 Peripheral
+	USART6_Inits();
+
+	// Enable the USART6 Peripheral
+	USART_PeripheralControl(USART6, ENABLE);
+
+
+	while(1){
+		// Wait for button press
+		while(GPIO_ReadFromInputPin(GPIOC, GPIO_PIN_NO_13) != BUTTON_PRESSED);
+		// For the De-bouncing of the Button
+		delay();
+
+		// Send data
+		USART_SendData(&usart6_handle, (uint8_t*)msg, strlen(msg));
+	}
+
+
+	while(1);
+
+
+	return 0;
+}
+

@@ -1,10 +1,17 @@
-19:06:58 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+10:08:38 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
 make -j12 all 
+arm-none-eabi-gcc "../Src/015_UART_Tx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/015_UART_Tx.d" -MT"Src/015_UART_Tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/015_UART_Tx.o"
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
 arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
    text	   data	    bss	    dec	    hex	filename
-   3728	     64	   1600	   5392	   1510	008_stm32f4xx_drivers.elf
+   3704	   1064	   1600	   6368	   18e0	008_stm32f4xx_drivers.elf
 Finished building: default.size.stdout
  
+Finished building: 008_stm32f4xx_drivers.list
+ 
 
-19:06:58 Build Finished. 0 errors, 0 warnings. (took 569ms)
+10:08:39 Build Finished. 0 errors, 0 warnings. (took 620ms)
 

@@ -50,11 +50,6 @@ void USART_Init(USART_Handle_t *pUSARTHandle){
 	//Implement the code to enable the Clock for given USART peripheral
 	USART_PeriClockControl(pUSARTHandle->pUSARTx, ENABLE);
 
-	tempreg = pUSARTHandle->pUSARTx->SR;
-	tempreg = 0;
-	pUSARTHandle->pUSARTx->DR = tempreg;
-	tempreg = 0;
-
 	//Enable USART Tx and Rx engines according to the USART_Mode configuration item
 	if ( pUSARTHandle->USART_Config.USART_Mode == USART_MODE_ONLY_RX)
 	{
@@ -158,7 +153,6 @@ void USART_DeInit(USART_RegDef_t *pUSARTx){
 void USART_SetBaudRate(USART_RegDef_t *pUSARTx, uint32_t BaudRate)
 {
 
-
 	//Variable to hold the APB clock
 	uint32_t PCLKx;
 
@@ -226,6 +220,7 @@ void USART_SetBaudRate(USART_RegDef_t *pUSARTx, uint32_t BaudRate)
  * Data Send and Receive
  */
 void USART_SendData(USART_Handle_t *pUSARTHandle,uint8_t *pTxBuffer, uint32_t Len){
+
 	uint16_t *pdata;
    //Loop over until "Len" number of bytes are transferred
 	for(uint32_t i = 0 ; i < Len; i++)
@@ -424,10 +419,10 @@ void USART_IRQHandling(USART_Handle_t *pHandle){
 void USART_PeripheralControl(USART_RegDef_t *pUSARTx, uint8_t EnOrDi){
 	if(EnOrDi == ENABLE){
 		// Enable
-		pUSARTx->CR1 |= (1 << USART_CR1_UE); // TODO
+		pUSARTx->CR1 |= (1 << USART_CR1_UE);
 	}else{
 		// Disable
-		pUSARTx->CR1 &= ~(1 << USART_CR1_UE); // TODO
+		pUSARTx->CR1 &= ~(1 << USART_CR1_UE);
 	}
 }
 
