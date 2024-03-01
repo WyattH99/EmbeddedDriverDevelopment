@@ -425,6 +425,13 @@ typedef struct{
 #define IRQ_NUM_I2C2_ER			34
 #define IRQ_NUM_I2C3_EV			72
 #define IRQ_NUM_I2C3_ER			73
+#define IRQ_NUM_USART1			37
+#define IRQ_NUM_USART2			38
+#define IRQ_NUM_USART3			39
+#define IRQ_NUM_UART4			52
+#define IRQ_NUM_UART5			53
+#define IRQ_NUM_USART6			71
+
 
 /*
  * IRQ (Interrupt Request) Priority Numbers of STM32F446xx MCU
