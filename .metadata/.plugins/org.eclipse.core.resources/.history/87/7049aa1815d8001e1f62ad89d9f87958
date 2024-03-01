@@ -132,7 +132,7 @@ int main(void){
 			delay();
 
 			// Enable the Reception through Interrupt
-			while(USART_ReceiveDataIT(&usart6_handle, (uint8_t*)rx_buf, strlen(msg[i])));
+			while(USART_ReceiveDataIT(&usart6_handle, rx_buf, strlen(msg[i])));
 
 			// Send Message
 			USART_SendData(&usart6_handle, (uint8_t*)msg[i], strlen(msg[i]));

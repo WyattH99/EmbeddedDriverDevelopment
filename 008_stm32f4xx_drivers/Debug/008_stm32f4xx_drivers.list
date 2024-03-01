@@ -2931,7 +2931,7 @@ int main(void){
  8001248:	f7ff ff5e 	bl	8001108 <delay>
 
 			// Enable the Reception through Interrupt
-			while(USART_ReceiveDataIT(&usart6_handle, rx_buf, strlen(msg[i])));
+			while(USART_ReceiveDataIT(&usart6_handle, (uint8_t*)rx_buf, strlen(msg[i])));
  800124c:	bf00      	nop
  800124e:	4a1b      	ldr	r2, [pc, #108]	; (80012bc <main+0xac>)
  8001250:	687b      	ldr	r3, [r7, #4]
