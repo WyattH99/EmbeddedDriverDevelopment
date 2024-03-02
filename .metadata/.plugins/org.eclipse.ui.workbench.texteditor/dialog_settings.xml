@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="usart6"/>
+		<item key="selection" value="USART"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="I2C"/>
+			<item value="I2C_ApplicationEventCallback"/>
+			<item value="I2C_ApplicationEvent"/>
+			<item value="application"/>
+			<item value="USART6"/>
+			<item value="USART"/>
 			<item value="usart1"/>
 			<item value="USART2Handle"/>
-			<item value="I2C"/>
 			<item value="I2C1"/>
 			<item value="SPI"/>
 			<item value="ClearFlag"/>
@@ -18,10 +23,10 @@
 			<item value="SR"/>
 		</list>
 		<list key="replacehistory">
+			<item value="USART"/>
 			<item value="usart6"/>
 			<item value="USART6"/>
 			<item value="usart1_handle"/>
-			<item value="USART"/>
 			<item value="USART2"/>
 			<item value="CR3"/>
 			<item value="CR2"/>
@@ -29,8 +34,8 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="970"/>
-		<item key="DIALOG_Y_ORIGIN" value="295"/>
+		<item key="DIALOG_X_ORIGIN" value="1148"/>
+		<item key="DIALOG_Y_ORIGIN" value="287"/>
 		<item key="DIALOG_WIDTH" value="408"/>
 		<item key="DIALOG_HEIGHT" value="472"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>

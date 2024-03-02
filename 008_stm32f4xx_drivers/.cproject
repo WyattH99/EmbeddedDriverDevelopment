@@ -72,13 +72,12 @@
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec.1142154263" name="MCU Output Converter Motorola S-rec with symbols" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec"/>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.413759959.382205791" name="015_UART_Tx.c" rcbsApplicability="disable" resourcePath="Src/015_UART_Tx.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.11304577.1827745141">
-						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.11304577.1827745141" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.11304577"/>
-					</fileInfo>
+					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.413759959.18724613" name="lcd.h" rcbsApplicability="disable" resourcePath="BSP/lcd.h" toolsToInvoke=""/>
 					<sourceEntries>
+						<entry excluding="lcd.h|lcd.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="BSP"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Inc"/>
-						<entry excluding="015_UART_Tx.c|014_I2C_Slave_Tx_String_Length.c|013_I2C_Slave_Tx_String.c|012_I2C_Master_Rx_Testing_IT.c|011_I2C_Master_Rx_Testing.c|010_I2C_Master_Tx_Testing.c|009_SPI_Message_Rcv_It.c|008_SPI_Cmd_Handling.c|007_SPI_TxOnly_Arduino.c|006_SPI_Tx_Testing.c|005_Button_Interrupt.c|main.c|003_Led_Button_External.c|002_Led_Button.c|001_Led_Toggle.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
+						<entry excluding="016_UART_Case.c|015_UART_Tx.c|014_I2C_Slave_Tx_String_Length.c|013_I2C_Slave_Tx_String.c|012_I2C_Master_Rx_Testing_IT.c|011_I2C_Master_Rx_Testing.c|010_I2C_Master_Tx_Testing.c|009_SPI_Message_Rcv_It.c|008_SPI_Cmd_Handling.c|007_SPI_TxOnly_Arduino.c|006_SPI_Tx_Testing.c|005_Button_Interrupt.c|main.c|003_Led_Button_External.c|002_Led_Button.c|001_Led_Toggle.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Startup"/>
 					</sourceEntries>
 				</configuration>
@@ -151,6 +150,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="BSP"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Inc"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Startup"/>

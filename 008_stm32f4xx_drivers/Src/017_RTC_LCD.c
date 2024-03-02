@@ -1,0 +1,18 @@
+/*
+ * 017_RTC_LCD.c
+ *
+ *  Created on: Mar 2, 2024
+ *      Author: wyatt
+ */
+
+
+
+#include "stm32f446xx.h"
+#include <string.h>
+
+/*
+ * I2C1 Pins:
+ * SCL --> PB8
+ * SDA --> PB9
+ * ALT Function Mode: 5
+ */
