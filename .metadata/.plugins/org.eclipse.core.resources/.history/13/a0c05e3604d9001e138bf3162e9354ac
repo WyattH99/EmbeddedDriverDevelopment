@@ -15,18 +15,12 @@
 /*
  * Application Configurable Items
  */
-/*
- * I2C1 Pins:
- * SCL --> PB8
- * SDA --> PB9
- * ALT Function Mode: 4
- */
 #define DS1307_I2C					I2C1
 #define DS1307_I2C_GPIO_PORT		GPIOB
 #define DS1307_I2C_SCL_PIN			GPIO_PIN_NO_8
 #define DS1307_I2C_SDA_PIN			GPIO_PIN_NO_9
 #define DS1307_I2C_SPEED			I2C_SCL_SPEED_SM
-#define DS1307_I2C_PUPD				GPIO_PIN_PU // Tying internal // GPIO_NO_PUPD		// Using External Pull-up
+#define DS1307_I2C_PUPD				GPIO_NO_PUPD		// Using External Pull-up
 
 
 

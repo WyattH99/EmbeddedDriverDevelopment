@@ -80,7 +80,7 @@ static void ds1307_i2c_pin_config(void){
 
 	/* I2C SCL */
 	GPIO_Handle_t i2c_scl;
-	memset(&i2c_scl, 0, sizeof(i2c_scl)); // Clear all the Variables
+	memset(i2c_scl, 0, sizeof(i2c_scl)); // Clear all the Variables
 	i2c_scl.pGPIOx = DS1307_I2C_GPIO_PORT;
 	i2c_scl.GPIO_PinConfig.GPIO_PinNumber = DS1307_I2C_SCL_PIN;
 	i2c_scl.GPIO_PinConfig.GPIO_PinPuPdControl = DS1307_I2C_PUPD;
@@ -92,7 +92,7 @@ static void ds1307_i2c_pin_config(void){
 
 	/* I2C SDA */
 	GPIO_Handle_t i2c_sda;
-	memset(&i2c_sda, 0, sizeof(i2c_sda)); // Clear all the Variables
+	memset(i2c_sda, 0, sizeof(i2c_sda)); // Clear all the Variables
 	i2c_sda.pGPIOx = DS1307_I2C_GPIO_PORT;
 	i2c_sda.GPIO_PinConfig.GPIO_PinNumber = DS1307_I2C_SDA_PIN;
 	i2c_sda.GPIO_PinConfig.GPIO_PinPuPdControl = DS1307_I2C_PUPD;
@@ -105,7 +105,7 @@ static void ds1307_i2c_pin_config(void){
 }
 
 
-static void ds1307_i2c_config(void){
+static void ds1307_i2c_pin_config(void){
 	g_ds1307I2cHandle.pI2Cx = DS1307_I2C;
 //	g_ds1307I2cHandle.I2C_Config.I2C_DeviceAddress = DS1307_I2C_ADDRESS;
 	g_ds1307I2cHandle.I2C_Config.I2C_SCLSpeed = DS1307_I2C_SPEED;

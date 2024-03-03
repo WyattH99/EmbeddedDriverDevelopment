@@ -1,0 +1,115 @@
+/*
+ * ds1307.c
+ *
+ *  Created on: Mar 2, 2024
+ *      Author: wyatt
+ */
+
+
+#include "ds1307.h"
+
+/*
+ * Private Helper Functions Prototype
+ */
+static void ds1307_i2c_pin_config(void);
+
+
+/* ds1307 Initialization */
+uint8_t ds1307_init(void){
+
+
+	// 1. Initialize the I2C Pins
+	ds1307_i2c_pin_config();
+
+	// 2. Initialize the I2C Peripheral
+
+}
+
+
+/* Set / Get Time */
+void ds1307_set_current_time(RTC_time_t *rtc_time){
+
+}
+
+void ds1307_get_current_time(RTC_time_t *rtc_time){
+
+}
+
+
+/* Set / Get Date */
+void ds1307_set_current_date(RTC_date_t *rtc_date){
+
+}
+
+void ds1307_get_current_date(RTC_date_t *rtc_date){
+
+}
+
+
+
+/*
+ * Private Helper Functions Definitions
+ */
+static void ds1307_i2c_pin_config(void){
+	/*
+	 * I2C1 Pins:
+	 * SCL --> PB8
+	 * SDA --> PB9
+	 * ALT Function Mode: 4
+	 */
+
+	GPIO_Handle_t i2c_scl, i2c_sda;
+
+	// Clear all the Variables
+	memset(i2c_scl, 0, sizeof(i2c_scl));
+	memset(i2c_sda, 0, sizeof(i2c_sda));
+
+	i2c_scl.pGPIOx = GPIOB;
+	i2c_scl.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_8;
+	i2c_scl.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFUN;
+	i2c_scl.GPIO_PinConfig.GPIO_PinAltFunMode = 4;
+	i2c_scl.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_OD;
+	i2c_scl.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD; // External Pull-UP Used
+	i2c_scl.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+
+	i2c_sda.pGPIOx = GPIOB;
+	i2c_sda.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_9;
+	i2c_sda.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFUN;
+	i2c_sda.GPIO_PinConfig.GPIO_PinAltFunMode = 4;
+	i2c_sda.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_OD;
+	i2c_sda.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD; // External Pull-UP Used
+	i2c_sda.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+
+	GPIO_Init(&i2c_scl);
+	GPIO_Init(&i2c_sda);
+
+	// Common Settings between Pins
+	I2CPins.pGPIOx = GPIOB;
+	I2CPins.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFUN;
+	I2CPins.GPIO_PinConfig.GPIO_PinAltFunMode = 4;
+	I2CPins.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_OD;
+	I2CPins.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD; // External Pull-UP Used
+	I2CPins.GPIO_PinConfig.GPIO_PinSpeed = GPIO_SPEED_FAST;
+
+
+	// SCL
+	GPIO_Handle_t I2C_SCL_Pin = I2CPins;
+	I2C_SCL_Pin.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_8;
+	GPIO_Init(&I2C_SCL_Pin);
+
+	// SDA
+	GPIO_Handle_t I2C_SDA_Pin = I2CPins;
+	I2C_SDA_Pin.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_9;
+	GPIO_Init(&I2C_SDA_Pin);
+}
+
+
+
+
+
+
+
+
+
+
+

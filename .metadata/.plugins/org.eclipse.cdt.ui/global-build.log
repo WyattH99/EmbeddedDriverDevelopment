@@ -2360,3 +2360,82 @@ Finished building: default.size.stdout
  
 Finished building: 008_stm32f4xx_drivers.list
  
+20:45:48 **** Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/017_RTC_LCD.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/017_RTC_LCD.d" -MT"Src/017_RTC_LCD.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/017_RTC_LCD.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc "../BSP/ds1307.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"BSP/ds1307.d" -MT"BSP/ds1307.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "BSP/ds1307.o"
+../BSP/ds1307.c: In function 'ds1307_i2c_pin_config':
+../BSP/ds1307.c:83:16: error: incompatible type for argument 1 of 'memset'
+   83 |         memset(i2c_scl, 0, sizeof(i2c_scl)); // Clear all the Variables
+      |                ^~~~~~~
+      |                |
+      |                GPIO_Handle_t
+In file included from ../BSP/ds1307.c:9:
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/string.h:33:18: note: expected 'void *' but argument is of type 'GPIO_Handle_t'
+   33 | void *   memset (void *, int, size_t);
+      |                  ^~~~~~
+../BSP/ds1307.c:95:16: error: incompatible type for argument 1 of 'memset'
+   95 |         memset(i2c_sda, 0, sizeof(i2c_sda)); // Clear all the Variables
+      |                ^~~~~~~
+      |                |
+      |                GPIO_Handle_t
+In file included from ../BSP/ds1307.c:9:
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/string.h:33:18: note: expected 'void *' but argument is of type 'GPIO_Handle_t'
+   33 | void *   memset (void *, int, size_t);
+      |                  ^~~~~~
+../BSP/ds1307.c: At top level:
+../BSP/ds1307.c:108:13: error: redefinition of 'ds1307_i2c_pin_config'
+  108 | static void ds1307_i2c_pin_config(void){
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../BSP/ds1307.c:73:13: note: previous definition of 'ds1307_i2c_pin_config' with type 'void(void)'
+   73 | static void ds1307_i2c_pin_config(void){
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../BSP/ds1307.c:19:13: warning: 'ds1307_i2c_config' used but never defined
+   19 | static void ds1307_i2c_config(void);
+      |             ^~~~~~~~~~~~~~~~~
+../BSP/ds1307.c:108:13: warning: 'ds1307_i2c_pin_config' defined but not used [-Wunused-function]
+  108 | static void ds1307_i2c_pin_config(void){
+      |             ^~~~~~~~~~~~~~~~~~~~~
+make: *** [BSP/subdir.mk:19: BSP/ds1307.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+20:47:37 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../BSP/ds1307.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"BSP/ds1307.d" -MT"BSP/ds1307.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "BSP/ds1307.o"
+../BSP/ds1307.c: In function 'ds1307_i2c_pin_config':
+../BSP/ds1307.c:83:16: error: incompatible type for argument 1 of 'memset'
+   83 |         memset(i2c_scl, 0, sizeof(i2c_scl)); // Clear all the Variables
+      |                ^~~~~~~
+      |                |
+      |                GPIO_Handle_t
+In file included from ../BSP/ds1307.c:9:
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/string.h:33:18: note: expected 'void *' but argument is of type 'GPIO_Handle_t'
+   33 | void *   memset (void *, int, size_t);
+      |                  ^~~~~~
+../BSP/ds1307.c:95:16: error: incompatible type for argument 1 of 'memset'
+   95 |         memset(i2c_sda, 0, sizeof(i2c_sda)); // Clear all the Variables
+      |                ^~~~~~~
+      |                |
+      |                GPIO_Handle_t
+In file included from ../BSP/ds1307.c:9:
+/opt/st/stm32cubeide_1.13.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.linux64_1.1.1.202309131626/tools/arm-none-eabi/include/string.h:33:18: note: expected 'void *' but argument is of type 'GPIO_Handle_t'
+   33 | void *   memset (void *, int, size_t);
+      |                  ^~~~~~
+make: *** [BSP/subdir.mk:19: BSP/ds1307.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+20:48:42 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../BSP/ds1307.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"BSP/ds1307.d" -MT"BSP/ds1307.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "BSP/ds1307.o"
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+    704	      8	   1568	   2280	    8e8	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+Finished building: 008_stm32f4xx_drivers.list
+ 
+ 
