@@ -79,8 +79,9 @@ RTC_date_t current_date;
 
 int main(void){
 
-#ifndef PRINT_LCD
 	initialise_monitor_handles();
+
+#ifndef PRINT_LCD
 	printf("RTC test\n");
 #else
 	lcd_init();

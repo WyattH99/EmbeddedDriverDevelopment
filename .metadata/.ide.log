@@ -7,3 +7,4 @@
 2024-03-04 07:26:47,072 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
 2024-03-04 07:50:21,029 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=false
 2024-03-04 07:50:23,117 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
+2024-03-04 14:55:36,595 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
