@@ -1,0 +1,29 @@
+/*
+ * lcd.c
+ *
+ *  Created on: Mar 2, 2024
+ *      Author: wyatt
+ */
+
+
+
+
+#include "lcd.h"
+
+
+
+void lcd_init(void){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

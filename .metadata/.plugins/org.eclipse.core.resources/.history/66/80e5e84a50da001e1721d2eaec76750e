@@ -1,0 +1,53 @@
+/*
+ * lcd.h
+ *
+ *  Created on: Mar 2, 2024
+ *      Author: wyatt
+ */
+
+#ifndef LCD_H_
+#define LCD_H_
+
+
+#include "stm32f446xx.h"
+
+/*
+ * Application Configurable Items
+ */
+/*
+ * LCD Pins
+ * RS --> PC13
+ * R/^W --> PC14
+ * EN --> PC15
+ * D4 --> PC9
+ * D5 --> PC8
+ * D6 --> PC6
+ * D7 --> PC5
+ */
+#define LCD_GPIO_PORT		GPIOC
+#define LCD_GPIO_RS			GPIO_PIN_NO_13
+#define LCD_GPIO_RW			GPIO_PIN_NO_14
+#define LCD_GPIO_EN			GPIO_PIN_NO_15
+#define LCD_GPIO_D4			GPIO_PIN_NO_9
+#define LCD_GPIO_D5			GPIO_PIN_NO_8
+#define LCD_GPIO_D6			GPIO_PIN_NO_6
+#define LCD_GPIO_D7			GPIO_PIN_NO_5
+
+
+
+
+/* API Prototypes */
+void lcd_init(void);
+
+
+#endif /* LCD_H_ */
+
+
+
+
+
+
+
+
+
+

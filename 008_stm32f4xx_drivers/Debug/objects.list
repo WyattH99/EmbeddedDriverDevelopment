@@ -1,4 +1,5 @@
 "./BSP/ds1307.o"
+"./BSP/lcd.o"
 "./Drivers/Src/stm32f446xx_gpio_driver.o"
 "./Drivers/Src/stm32f446xx_i2c_driver.o"
 "./Drivers/Src/stm32f446xx_rcc_driver.o"

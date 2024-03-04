@@ -5,13 +5,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../BSP/ds1307.c 
+../BSP/ds1307.c \
+../BSP/lcd.c 
 
 OBJS += \
-./BSP/ds1307.o 
+./BSP/ds1307.o \
+./BSP/lcd.o 
 
 C_DEPS += \
-./BSP/ds1307.d 
+./BSP/ds1307.d \
+./BSP/lcd.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +24,7 @@ BSP/%.o BSP/%.su BSP/%.cyclo: ../BSP/%.c BSP/subdir.mk
 clean: clean-BSP
 
 clean-BSP:
-	-$(RM) ./BSP/ds1307.cyclo ./BSP/ds1307.d ./BSP/ds1307.o ./BSP/ds1307.su
+	-$(RM) ./BSP/ds1307.cyclo ./BSP/ds1307.d ./BSP/ds1307.o ./BSP/ds1307.su ./BSP/lcd.cyclo ./BSP/lcd.d ./BSP/lcd.o ./BSP/lcd.su
 
 .PHONY: clean-BSP
 
