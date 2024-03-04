@@ -16,10 +16,6 @@
  */
 
 
-// Helper Functions Prototypes
-char* get_day_of_week(uint8_t day);
-
-
 int main(void){
 
 	RTC_time_t current_time;
@@ -75,18 +71,7 @@ char* get_day_of_week(uint8_t day){
 }
 
 
-// hh:mm:ss
-char* time_to_string(RTC_time_t *rtc_time){
-	char buf[9];
-	buf[2] = ':';
-	buf[5] = ':';
 
-	number_to_string(rtc_time->hours, buf);
-}
-
-char* date_to_string(RTC_date_t *rtc_date){
-
-}
 
 
 

@@ -2439,3 +2439,121 @@ Finished building: default.size.stdout
 Finished building: 008_stm32f4xx_drivers.list
  
  
+18:49:34 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../BSP/ds1307.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"BSP/ds1307.d" -MT"BSP/ds1307.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "BSP/ds1307.o"
+../BSP/ds1307.c: In function 'ds1307_set_current_time':
+../BSP/ds1307.c:52:19: warning: implicit declaration of function 'binary_to_bcd' [-Wimplicit-function-declaration]
+   52 |         seconds = binary_to_bcd(rtc_time->seconds);
+      |                   ^~~~~~~~~~~~~
+../BSP/ds1307.c:51:26: warning: variable 'hours' set but not used [-Wunused-but-set-variable]
+   51 |         uint8_t seconds, hours;
+      |                          ^~~~~
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+    704	      8	   1568	   2280	    8e8	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+18:51:35 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../BSP/ds1307.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"BSP/ds1307.d" -MT"BSP/ds1307.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "BSP/ds1307.o"
+../BSP/ds1307.c: In function 'ds1307_set_current_time':
+../BSP/ds1307.c:52:19: warning: implicit declaration of function 'binary_to_bcd' [-Wimplicit-function-declaration]
+   52 |         seconds = binary_to_bcd(rtc_time->seconds);
+      |                   ^~~~~~~~~~~~~
+../BSP/ds1307.c:51:26: warning: variable 'hours' set but not used [-Wunused-but-set-variable]
+   51 |         uint8_t seconds, hours;
+      |                          ^~~~~
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+    704	      8	   1568	   2280	    8e8	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+19:07:19 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../BSP/ds1307.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"BSP/ds1307.d" -MT"BSP/ds1307.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "BSP/ds1307.o"
+../BSP/ds1307.c: In function 'ds1307_set_current_time':
+../BSP/ds1307.c:54:19: warning: implicit declaration of function 'binary_to_bcd' [-Wimplicit-function-declaration]
+   54 |         seconds = binary_to_bcd(rtc_time->seconds);
+      |                   ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+    704	      8	   1568	   2280	    8e8	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+19:24:37 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../BSP/ds1307.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"BSP/ds1307.d" -MT"BSP/ds1307.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "BSP/ds1307.o"
+../BSP/ds1307.c: In function 'ds1307_set_current_time':
+../BSP/ds1307.c:54:19: warning: implicit declaration of function 'binary_to_bcd' [-Wimplicit-function-declaration]
+   54 |         seconds = binary_to_bcd(rtc_time->seconds);
+      |                   ^~~~~~~~~~~~~
+../BSP/ds1307.c: In function 'ds1307_get_current_time':
+../BSP/ds1307.c:78:29: warning: implicit declaration of function 'bcd_to_binary' [-Wimplicit-function-declaration]
+   78 |         rtc_time->seconds = bcd_to_binary(seconds);
+      |                             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+    704	      8	   1568	   2280	    8e8	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+19:42:32 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../BSP/ds1307.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"BSP/ds1307.d" -MT"BSP/ds1307.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "BSP/ds1307.o"
+../BSP/ds1307.c: In function 'ds1307_set_current_time':
+../BSP/ds1307.c:54:19: warning: implicit declaration of function 'binary_to_bcd' [-Wimplicit-function-declaration]
+   54 |         seconds = binary_to_bcd(rtc_time->seconds);
+      |                   ^~~~~~~~~~~~~
+../BSP/ds1307.c: In function 'ds1307_get_current_time':
+../BSP/ds1307.c:78:29: warning: implicit declaration of function 'bcd_to_binary' [-Wimplicit-function-declaration]
+   78 |         rtc_time->seconds = bcd_to_binary(seconds);
+      |                             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+    704	      8	   1568	   2280	    8e8	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
+20:02:13 **** Incremental Build of configuration Debug for project 008_stm32f4xx_drivers ****
+make -j12 all 
+arm-none-eabi-gcc "../BSP/ds1307.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"BSP/ds1307.d" -MT"BSP/ds1307.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "BSP/ds1307.o"
+arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_stm32f4xx_drivers.elf
+ 
+arm-none-eabi-size   008_stm32f4xx_drivers.elf 
+arm-none-eabi-objdump -h -S  008_stm32f4xx_drivers.elf  > "008_stm32f4xx_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+    704	      8	   1568	   2280	    8e8	008_stm32f4xx_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_stm32f4xx_drivers.list
+ 
