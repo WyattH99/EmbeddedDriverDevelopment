@@ -5,29 +5,23 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/017_RTC_LCD.c \
-../Src/syscalls.c \
-../Src/sysmem.c 
+../Src/017_RTC_LCD.c 
 
 OBJS += \
-./Src/017_RTC_LCD.o \
-./Src/syscalls.o \
-./Src/sysmem.o 
+./Src/017_RTC_LCD.o 
 
 C_DEPS += \
-./Src/017_RTC_LCD.d \
-./Src/syscalls.d \
-./Src/sysmem.d 
+./Src/017_RTC_LCD.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
 Src/%.o Src/%.su Src/%.cyclo: ../Src/%.c Src/subdir.mk
-	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/Drivers/Inc" -I"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/BSP" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
 
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/017_RTC_LCD.cyclo ./Src/017_RTC_LCD.d ./Src/017_RTC_LCD.o ./Src/017_RTC_LCD.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+	-$(RM) ./Src/017_RTC_LCD.cyclo ./Src/017_RTC_LCD.d ./Src/017_RTC_LCD.o ./Src/017_RTC_LCD.su
 
 .PHONY: clean-Src
 

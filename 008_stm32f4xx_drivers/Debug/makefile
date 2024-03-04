@@ -62,7 +62,7 @@ main-build: 008_stm32f4xx_drivers.elf secondary-outputs
 
 # Tool invocations
 008_stm32f4xx_drivers.elf 008_stm32f4xx_drivers.map: $(OBJS) $(USER_OBJS) /home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "008_stm32f4xx_drivers.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/wyatt/Desktop/EmbeddedDriverDevelopment/008_stm32f4xx_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_stm32f4xx_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

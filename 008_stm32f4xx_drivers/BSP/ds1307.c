@@ -180,7 +180,7 @@ static void ds1307_write(uint8_t value, uint8_t reg_addr){
 	tx[1] = value;
 
 	// Send Register Address then the Value
-	I2C_MasterSendData(&g_ds1307I2cHandle, tx, 2, DS1307_I2C_ADDRESS, I2C_DISABLE_SR);
+	I2C_MasterSendData(&g_ds1307I2cHandle, tx, 2, DS1307_I2C_ADDRESS, 0);
 
 }
 
@@ -188,8 +188,8 @@ static void ds1307_write(uint8_t value, uint8_t reg_addr){
 static uint8_t ds1307_read(uint8_t reg_addr){
 
 	uint8_t data;
-	I2C_MasterSendData(&g_ds1307I2cHandle, &reg_addr, 1, DS1307_I2C_ADDRESS, I2C_ENABLE_SR);
-	I2C_MasterReceiveData(&g_ds1307I2cHandle, &data, 1, DS1307_I2C_ADDRESS, I2C_DISABLE_SR);
+	I2C_MasterSendData(&g_ds1307I2cHandle, &reg_addr, 1, DS1307_I2C_ADDRESS, 0);
+	I2C_MasterReceiveData(&g_ds1307I2cHandle, &data, 1, DS1307_I2C_ADDRESS, 0);
 
 	return data;
 }
@@ -202,6 +202,8 @@ static uint8_t binary_to_bcd(uint8_t value){
 		m = value / 10;
 		n = value % 10;
 		bcd = (uint8_t)((m << 4) | n);
+	}else{
+		bcd = value;
 	}
 
 	return bcd;

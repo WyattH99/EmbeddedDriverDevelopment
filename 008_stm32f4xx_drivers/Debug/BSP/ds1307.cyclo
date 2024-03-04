@@ -8,4 +8,4 @@
 ../BSP/ds1307.c:177:13:ds1307_write	1
 ../BSP/ds1307.c:188:16:ds1307_read	1
 ../BSP/ds1307.c:199:16:binary_to_bcd	2
-../BSP/ds1307.c:212:16:bcd_to_binary	1
+../BSP/ds1307.c:214:16:bcd_to_binary	1
